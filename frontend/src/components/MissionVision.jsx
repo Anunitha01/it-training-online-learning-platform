@@ -1,29 +1,22 @@
-function Courses() {
+function MissionVision() {
   return (
     <section>
-      <h2>Our Courses</h2>
+      <h2>Our Mission & Vision</h2>
 
-      <ul>
-        <li>
-          <strong>Web Development</strong> – Beginner  
-          <br />
-          Includes hands-on projects and certificate upon completion.
-        </li>
+      <p>
+        <strong>Mission:</strong>  
+        To provide accessible IT training through hands-on projects and
+        practical learning that prepares learners for real-world challenges.
+      </p>
 
-        <li>
-          <strong>Programming Fundamentals</strong> – Intermediate  
-          <br />
-          Focus on practical problem-solving and real-world exercises.
-        </li>
-
-        <li>
-          <strong>IT Tools & Technologies</strong> – Beginner  
-          <br />
-          Learn essential tools with guided practical activities.
-        </li>
-      </ul>
+      <p>
+        <strong>Vision:</strong>  
+        To become a trusted online learning platform that empowers students
+        with industry-relevant skills and recognised certifications.
+      </p>
     </section>
   );
 }
 
-export default Courses;
+export default MissionVision;
+

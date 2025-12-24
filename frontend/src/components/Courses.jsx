@@ -1,27 +1,57 @@
+import { useEffect, useState } from "react";
+
 function Courses() {
+  const [courses, setCourses] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/courses")
+      .then((response) => response.json())
+      .then((result) => {
+        setCourses(result);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsLoading(false);
+      });
+  }, []);
+
   return (
     <section>
-      <h2>Our Courses</h2>
+      <h2>IT Training Courses</h2>
+      <p>
+        Our courses emphasise hands-on projects 🛠️ and certificate-based programs 📜.
+      </p>
 
-      <ul>
-        <li>
-          <strong>Web Development</strong> – Beginner  
-          <br />
-          Includes hands-on projects and certificate upon completion.
-        </li>
+      {isLoading ? (
+        <p>Loading courses...</p>
+      ) : (
+        <div className="grid">
+          {courses.map((courseItem) => (
+            <div className="card" key={courseItem.id}>
+              <h3>{courseItem.title}</h3>
 
-        <li>
-          <strong>Programming Fundamentals</strong> – Intermediate  
-          <br />
-          Focus on practical problem-solving and real-world exercises.
-        </li>
+              <p>
+                <strong>Level:</strong> {courseItem.level}
+              </p>
 
-        <li>
-          <strong>IT Tools & Technologies</strong> – Beginner  
-          <br />
-          Learn essential tools with guided practical activities.
-        </li>
-      </ul>
+              <p>
+                <strong>Duration:</strong> {courseItem.duration}
+              </p>
+
+              <p>{courseItem.description}</p>
+
+              {courseItem.features && (
+                <ul>
+                  {courseItem.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
