@@ -1,16 +1,29 @@
+import "./Navbar.css";
+import logo from "../assets/logo.png";
+
 export default function Navbar() {
   return (
-    <nav>
-      <strong>BrightPath</strong>
+    <header className="navbar">
+      {/* LEFT: Logo only */}
+      <div className="nav-left">
+        <img
+          src={logo}
+          alt="BrightPath Logo"
+          className="nav-logo"
+        />
+      </div>
 
-      <ul>
-        <li>Home</li>
-        <li>Courses</li>
-        <li>About</li>
-        <li>Blog</li>
-        <li>FAQ</li>
-        <li>Login</li>
-      </ul>
-    </nav>
+      {/* CENTER: Links */}
+      <nav className="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Courses</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">FAQ</a>
+      </nav>
+
+      {/* RIGHT: Login */}
+      <button className="login-btn">Login</button>
+    </header>
   );
 }

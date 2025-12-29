@@ -1,0 +1,191 @@
+/* ===============================
+   BASE
+=============================== */
+
+.about {
+  background-image: url("../assets/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 80px 60px 120px;
+  color: #0b1f3a;
+}
+
+/* ===============================
+   HERO
+=============================== */
+
+.about-hero {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* MATCH REFERENCE TEXT */
+
+.about-title {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.about-heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.about-highlight {
+  font-size: 18px;
+  margin-bottom: 18px;
+  color: #475569;
+}
+
+.about-highlight span {
+  color: #f5c518;
+  font-weight: 700;
+}
+
+.about-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #475569;
+  max-width: 520px;
+}
+
+.about-hero-image img {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ===============================
+   CARDS (GLASS STYLE)
+=============================== */
+
+.about-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 28px;
+}
+
+/* WIDE ABOUT CARD */
+
+.about-wide {
+  max-width: 1100px;
+  margin: 0 auto 60px;
+}
+
+.about-wide h4 {
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.about-wide p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+/* ===============================
+   MISSION & VISION
+=============================== */
+
+.about-cards {
+  max-width: 1100px;
+  margin: 0 auto 100px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.about-card h4 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.about-card p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ===============================
+   TEAM
+=============================== */
+
+.about-team {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-team h3 {
+  font-size: 28px;
+  margin-bottom: 32px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.team-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.team-card h4 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.team-card span {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1976ff;
+  margin-bottom: 12px;
+}
+
+.team-card p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.team-note {
+  margin-top: 10px;
+  font-size: 13px;
+  font-style: italic;
+  color: #475569;
+}
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+
+@media (max-width: 900px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-hero-image {
+    order: -1;
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
