@@ -1,50 +1,57 @@
 /* ===============================
    BASE
-=============================== */
+================================ */
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .about {
-  background-image: url("../assets/background.png");
+  background-image: url("../assets/background_about.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  padding: 80px 60px 120px;
+  padding: 90px 60px 120px;
   color: #0b1f3a;
 }
 
 /* ===============================
-   HERO
-=============================== */
+   HERO (Top section)
+================================ */
 
 .about-hero {
-  max-width: 1200px;
-  margin: 0 auto 80px;
-
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
+  grid-template-columns: minmax(560px, 1.05fr) minmax(520px, 0.9fr);
+  gap: 12px; /* 🔥 tighter gap */
   align-items: center;
+  max-width: 1320px;
+  margin: 0 auto 56px;
 }
 
-/* MATCH REFERENCE TEXT */
+.about-hero-text {
+  padding-left: 0px;
+}
 
 .about-title {
-  font-size: 42px;
+  font-size: clamp(56px, 6vw, 88px);
+  line-height: 1.08;
   font-weight: 800;
-  margin-bottom: 14px;
+  margin-bottom: 22px;
 }
 
 .about-heading {
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 14px;
+  font-size: clamp(28px, 2.6vw, 32px);
+  font-weight: 700;
+  margin-bottom: 18px;
 }
 
 .about-highlight {
-  font-size: 18px;
-  margin-bottom: 18px;
+  font-size: clamp(24px, 2.2vw, 28px);
+  margin-bottom: 26px;
   color: #475569;
 }
+
 
 .about-highlight span {
   color: #f5c518;
@@ -52,140 +59,194 @@
 }
 
 .about-description {
-  font-size: 15px;
-  line-height: 1.7;
-  color: #475569;
-  max-width: 520px;
+  font-size: clamp(19px, 1.6vw, 22px);
+  line-height: 1.85;
+  color: #6b7280;
+  max-width: 600px;
+}
+
+.about-hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-hero-image img {
-  width: 100%;
-  max-width: 420px;
+  max-width: 480px;
+  transform: none;
+  filter: drop-shadow(0 28px 60px rgba(15, 23, 42, 0.18));
 }
 
 /* ===============================
-   CARDS (GLASS STYLE)
-=============================== */
+   BIG GLASS BOX + DOODLES
+================================ */
 
-.about-card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 28px;
+.about-glass {
+  position: relative;
+  padding: 34px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px);
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.14);
+  overflow: hidden;
 }
 
-/* WIDE ABOUT CARD */
-
-.about-wide {
-  max-width: 1100px;
-  margin: 0 auto 60px;
+.about-glass > * {
+  position: relative;
+  z-index: 1;
 }
 
-.about-wide h4 {
-  font-size: 22px;
-  margin-bottom: 16px;
+/* ===============================
+   CONTENT
+================================ */
+
+.section-title {
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #0b1f3a;
 }
 
-.about-wide p {
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 14px;
+.section-text {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #6b7280;           /* SAME grey as hero paragraph */
+  letter-spacing: 0.2px;
 }
 
 /* ===============================
    MISSION & VISION
-=============================== */
+================================ */
 
-.about-cards {
-  max-width: 1100px;
-  margin: 0 auto 100px;
-
+.about-card-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 22px;
+  margin: 26px 0 32px;
 }
 
-.about-card h4 {
-  font-size: 20px;
-  margin-bottom: 12px;
+.about-card {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.10);
 }
 
-.about-card p {
-  font-size: 14px;
-  line-height: 1.6;
+.card-title {
+  font-size: 25px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #0b1f3a;
+}
+
+.card-text {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #6b7280;           /* SAME grey as hero paragraph */
+  letter-spacing: 0.2px;
 }
 
 /* ===============================
    TEAM
-=============================== */
-
-.about-team {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.about-team h3 {
-  font-size: 28px;
-  margin-bottom: 32px;
-}
+================================ */
 
 .team-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 18px;
+  margin-top: 16px;
 }
 
 .team-card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(10px);
-  border-radius: 18px;
-  padding: 24px;
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(14px);
+  border-radius: 20px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.10);
 }
 
-.team-card h4 {
-  font-size: 18px;
-  margin-bottom: 4px;
+.team-name {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #0b1f3a;
 }
 
-.team-card span {
+.team-role {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 10px;
   display: block;
-  font-size: 13px;
-  font-weight: 600;
-  color: #1976ff;
-  margin-bottom: 12px;
 }
 
-.team-card p {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
+.team-bio,
 .team-note {
-  margin-top: 10px;
-  font-size: 13px;
-  font-style: italic;
-  color: #475569;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #6b7280;           /* SAME grey as hero paragraph */
+  letter-spacing: 0.2px;
 }
 
 /* ===============================
    RESPONSIVE
-=============================== */
+================================ */
 
 @media (max-width: 900px) {
+  .about {
+    padding: 70px 24px 100px;
+  }
+
   .about-hero {
     grid-template-columns: 1fr;
-    text-align: center;
+    gap: 28px;
   }
 
-  .about-hero-image {
-    order: -1;
-  }
-
-  .about-cards {
-    grid-template-columns: 1fr;
-  }
-
+  .about-card-grid,
   .team-grid {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===============================
+   TEAM CARD IMAGES + STRIPES
+================================ */
+
+.team-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Bottom color stripes */
+.team-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.team-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+}
+
+/* Individual colors */
+.stripe-yellow::after {
+  background: linear-gradient(90deg, #facc15, #f59e0b);
+}
+
+.stripe-blue::after {
+  background: linear-gradient(90deg, #38bdf8, #2563eb);
+}
+
+.stripe-purple::after {
+  background: linear-gradient(90deg, #8e81be, #7c3aed);
+}
+
