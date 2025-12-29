@@ -1,9 +1,7 @@
-function Footer() {
+export default function Footer() {
   return (
     <footer>
-      <p>© 2025 IT Training & Online Learning Platform</p>
+      © 2025 BrightPath IT Academy & Learning Hub
     </footer>
   );
 }
-
-export default Footer;

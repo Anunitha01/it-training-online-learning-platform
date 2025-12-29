@@ -1,21 +1,14 @@
-import MenuBar from "./components/MenuBar";
-import Intro from "./components/Intro";
-import Courses from "./components/Courses";
-import MissionVision from "./components/MissionVision";
-import Team from "./components/Team";
-import Footer from "./components/Footer";
+import "./App.css";
+import Navbar from "./components/Navbar.jsx";
+import Footer from "./components/Footer.jsx";
+import Home from "./pages/Home.jsx";
 
-function App() {
+export default function App() {
   return (
     <>
-      <MenuBar />
-      <Intro />
-      <Courses />
-      <MissionVision />
-      <Team />
+      <Navbar />
+      <Home />
       <Footer />
     </>
   );
 }
-
-export default App;
