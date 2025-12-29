@@ -54,20 +54,21 @@ export default function About() {
           <div className="about-card">
             <h4 className="card-title">⭐ Mission Statement</h4>
             <p className="card-text">
-              BrightPath IT Academy & Learning Hub is committed to providing
-              accessible, practical, and industry-relevant IT education through
-              structured training programs and an interactive online learning
-              platform.
+              BrightPath IT Academy & Learning Hub is committed to providing accessible, 
+              practical, and industry-relevant IT education through structured training 
+              programs and an interactive online learning platform. Our mission is to equip 
+              learners with essential technical skills, hands-on experience, and professional 
+              readiness to succeed in the evolving digital world.
             </p>
           </div>
 
           <div className="about-card">
             <h4 className="card-title">🚀 Vision Statement</h4>
             <p className="card-text">
-              Our vision is to become a trusted IT learning hub that empowers
-              students and professionals with future-ready skills, supports
-              lifelong learning, and bridges the gap between education and
-              industry through innovation and quality training.
+              Our vision is to become a trusted IT learning hub that empowers students 
+              and professionals with future-ready skills, supports lifelong learning, and 
+              bridges the gap between education and industry through innovation, quality 
+              training, and digital transformation.
             </p>
           </div>
         </div>
