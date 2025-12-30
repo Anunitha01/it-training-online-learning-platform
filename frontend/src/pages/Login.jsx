@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Auth.css"; // shared CSS with Register
+import "../style/Auth.css"; // shared CSS with Register
 
 function Login() {
   const [email, setEmail] = useState("");

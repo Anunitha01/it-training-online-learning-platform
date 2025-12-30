@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Auth.css"; // same CSS used for Login.jsx
+import "../style/Auth.css";// same CSS used for Login.jsx
 
 function Register() {
   const [name, setName] = useState("");

@@ -1,4 +1,4 @@
-import "./Home.css";
+import "../style/Home.css";
 import robot1 from "../assets/robot_1.png";
 
 export default function Home() {

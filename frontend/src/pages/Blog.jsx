@@ -1,6 +1,7 @@
-import "./Blog.css";
+import "../style/Blog.css";
 import { useState } from "react";
 import blogImg from "../assets/robot_5.png";
+
 
 const blogData = [
   {

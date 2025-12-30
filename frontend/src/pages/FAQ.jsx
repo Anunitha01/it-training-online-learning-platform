@@ -1,4 +1,4 @@
-import "./Faq.css";
+import "../style/FAQ.css";
 import { useState } from "react";
 
 const faqData = [
