@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import FAQ from "./pages/FAQ";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/courses" element={<Courses />} />
+
+        {/* FAQ */}
+        <Route path="/faq" element={<FAQ />} />
 
         {/* Authentication */}
         <Route path="/login" element={<Login />} />
