@@ -3,64 +3,76 @@ import { useState } from "react";
 
 const faqData = [
   {
-    question: "What is BrightPath IT Academy & Learning Hub, and what makes it different?",
+    question:
+      "I’m new to IT and feel completely lost. Is BrightPath suitable for beginners like me?",
     answer:
-      "BrightPath IT Academy & Learning Hub is a practical, skill-focused IT training and online learning platform designed to bridge the gap between academic knowledge and real-world industry expectations. Unlike traditional learning platforms that focus heavily on theory, BrightPath emphasizes hands-on projects, guided learning paths, and industry-relevant skills that prepare learners to apply what they learn in real scenarios."
+      "Yes, BrightPath is specifically designed with beginners in mind. Many learners start their IT journey feeling confused, overwhelmed, or unsure where to begin. BrightPath addresses this by providing structured learning paths that start from the basics and gradually build confidence. Concepts are explained clearly, reinforced with hands-on practice, and connected to real-world use cases so beginners can learn with clarity instead of frustration."
   },
   {
-    question: "Who is BrightPath designed for?",
+    question:
+      "How is BrightPath different from watching tutorials on YouTube or other platforms?",
     answer:
-      "BrightPath is designed for a wide range of learners, including students, fresh graduates, career switchers, and working professionals. Whether you are starting from scratch or looking to upgrade your existing IT skills, BrightPath provides structured learning paths that adapt to different experience levels and learning goals."
+      "Unlike random tutorials that often lack structure, BrightPath offers guided learning paths designed to build skills step by step. Learners are not left guessing what to learn next. Each course follows a clear progression, combining explanations, practical exercises, and projects. This approach helps learners truly understand concepts instead of just copying code or memorising steps."
   },
   {
-    question: "Do I need prior IT or coding experience to enroll?",
+    question:
+      "Do I need any prior coding or IT background before enrolling in BrightPath courses?",
     answer:
-      "No prior IT or coding experience is required for beginner-level courses. BrightPath offers step-by-step learning paths that start from the fundamentals and gradually progress to more advanced concepts. For learners with existing experience, intermediate and advanced courses are available to deepen technical expertise."
+      "No prior coding or IT experience is required for beginner-level courses. BrightPath starts from fundamentals and gradually introduces more advanced concepts in a beginner-friendly manner. For learners who already have some experience, intermediate and advanced learning paths are available to further strengthen technical skills."
   },
   {
-    question: "Are all BrightPath courses conducted fully online?",
+    question:
+      "Can I really learn practical IT skills online without attending physical classes?",
     answer:
-      "Yes. BrightPath operates through an interactive online learning platform that allows learners to access lessons, resources, and projects anytime and anywhere. This flexible structure ensures that learners can study according to their own schedule without being restricted by location or fixed class timings."
+      "Yes. BrightPath’s online learning platform is designed to deliver practical, real-world skills without the need for physical attendance. Learners gain experience through hands-on exercises, projects, and guided tasks that simulate real IT scenarios. This allows learners to build confidence and skills from anywhere, at any time."
   },
   {
-    question: "How are BrightPath courses structured?",
+    question:
+      "How are BrightPath courses designed to help me apply what I learn in real situations?",
     answer:
-      "Each course is organized into clearly defined modules and guided learning paths. Lessons are combined with hands-on exercises, practical assignments, and real-world projects to ensure learners not only understand concepts but also gain the confidence to apply them in professional environments."
+      "BrightPath courses are structured around real-world application. Each course includes practical exercises, assignments, and projects that mirror industry scenarios. This ensures learners do not just understand concepts theoretically but can apply them confidently in real IT environments, internships, or job roles."
   },
   {
-    question: "Can I learn at my own pace on BrightPath?",
+    question:
+      "Can I study at my own pace, or do I need to follow a fixed schedule?",
     answer:
-      "Yes. BrightPath strongly supports self-paced learning. Learners can move through course materials at a comfortable speed, revisit lessons when needed, and manage their learning schedule alongside academic, personal, or professional commitments."
+      "BrightPath fully supports self-paced learning. Learners can study according to their own schedule, revisit lessons whenever needed, and progress at a comfortable speed. This flexibility is especially helpful for students and working professionals managing multiple commitments."
   },
   {
-    question: "What kind of projects will I work on during the courses?",
+    question:
+      "What kind of projects will I work on, and will they be useful for my portfolio?",
     answer:
-      "Projects on BrightPath are designed to reflect real-world IT scenarios. Depending on the course, learners may work on tasks such as building functional applications, solving technical problems, implementing system features, or developing portfolio-ready projects that demonstrate practical skills to potential employers."
+      "Projects at BrightPath are designed to be practical and portfolio-ready. Depending on the course, learners may build applications, implement system features, or solve real technical problems. These projects help demonstrate real skills and can be showcased during internships, interviews, or professional evaluations."
   },
   {
-    question: "Will I receive a certificate after completing a course?",
+    question:
+      "Will completing a BrightPath course actually help me feel more confident in IT?",
     answer:
-      "Yes. Learners who successfully complete a course will receive a certificate of completion. These certificates reflect the practical skills and competencies gained throughout the course and can be used to support academic portfolios or professional resumes."
+      "Yes. BrightPath focuses on building confidence through understanding and practice. By working through structured lessons and completing real projects, learners gain clarity and confidence in their abilities. The goal is not just to complete a course, but to help learners feel capable and prepared to handle real IT challenges."
   },
   {
-    question: "How does BrightPath help with career readiness?",
+    question:
+      "Do I receive any certification after finishing a course on BrightPath?",
     answer:
-      "BrightPath focuses on career readiness by emphasizing practical skills, real-world projects, and structured learning paths aligned with industry needs. The platform aims to help learners build confidence, technical competence, and a clear understanding of how their skills apply in professional IT roles."
+      "Yes. Learners who successfully complete a BrightPath course receive a certificate of completion. These certificates reflect the practical skills and competencies gained and can be included in resumes, academic portfolios, or professional profiles."
   },
   {
-    question: "Is BrightPath suitable for working professionals with limited time?",
+    question:
+      "I’m already working or studying full-time. Is BrightPath flexible enough for me?",
     answer:
-      "Absolutely. BrightPath is built with flexibility in mind. The self-paced learning model allows working professionals to study during their free time, without pressure from fixed schedules, while still gaining meaningful and applicable IT skills."
+      "Absolutely. BrightPath is designed for flexibility. The self-paced learning model allows learners to study during their available free time without pressure from fixed schedules. This makes it suitable for students, working professionals, and anyone balancing multiple responsibilities."
   },
   {
-    question: "How can I get support if I face difficulties during a course?",
+    question:
+      "What support is available if I get stuck or don’t understand something?",
     answer:
-      "BrightPath provides structured guidance through course materials and platform support. Learners can refer to provided resources, follow guided paths, and seek assistance through available support channels to ensure a smooth and productive learning experience."
+      "BrightPath provides structured guidance through clear course materials and learning paths. Learners can revisit lessons, follow guided steps, and rely on available platform support to overcome difficulties. The goal is to ensure learners do not feel lost or discouraged during their learning journey."
   },
   {
-    question: "What is the long-term vision of BrightPath IT Academy & Learning Hub?",
+    question:
+      "What is BrightPath’s long-term goal for learners and the IT community?",
     answer:
-      "The long-term vision of BrightPath is to become a trusted IT learning hub that supports lifelong learning, empowers individuals with future-ready skills, and continuously adapts to the evolving demands of the digital and technology-driven world."
+      "BrightPath aims to become a trusted IT learning hub that supports lifelong learning and empowers individuals with future-ready skills. The platform is committed to adapting to industry changes and helping learners grow continuously in an evolving technology-driven world."
   }
 ];
 
