@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./Courses.css"; // create this CSS file for styling
+import "./Courses.css";
 
 function Courses() {
   const [courses, setCourses] = useState([]);
   const [search, setSearch] = useState("");
   const [levelFilter, setLevelFilter] = useState("");
+  const [selectedCourse, setSelectedCourse] = useState(null);
 
-  // Fetch courses from backend
   useEffect(() => {
     axios
       .get("http://localhost:5000/courses")
@@ -15,26 +15,22 @@ function Courses() {
       .catch((err) => console.error(err));
   }, []);
 
-  // Filter and search courses
   const filteredCourses = courses.filter(
     (course) =>
       (levelFilter === "" || course.level.includes(levelFilter)) &&
       course.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Handle enroll
   const handleEnroll = (courseTitle) => {
     const token = localStorage.getItem("token");
     if (!token) return alert("Please login to enroll");
     alert(`You have enrolled in ${courseTitle}!`);
-    // Later: send POST to backend to save enrollment
   };
 
   return (
     <div className="courses-container">
-      <h1>Courses</h1>
+      <h1 className="courses-heading">Courses</h1>
 
-      {/* Search & Filter */}
       <div className="courses-controls">
         <input
           type="text"
@@ -51,38 +47,47 @@ function Courses() {
         </select>
       </div>
 
-      {/* Courses List */}
       <div className="courses-list">
         {filteredCourses.map((course) => (
           <div key={course.id} className="course-card">
-            <h2>{course.title}</h2>
-            <p>
-              <strong>Level:</strong> {course.level} | <strong>Price:</strong> {course.price}
-            </p>
-            <p>
-              <strong>Duration:</strong> {course.duration}
-            </p>
+            <div className="course-content">
+              <h2>{course.title}</h2>
+              <p><span className="label">Level:</span> {course.level}</p>
+              <p><span className="label">Price:</span> {course.price}</p>
+              <p><span className="label">Duration:</span> {course.duration}</p>
+            </div>
 
-            <button
-              onClick={() => alert(course.features.join("\n"))}
-              className="features-btn"
-            >
-              View Features
-            </button>
-
-            <button onClick={() => handleEnroll(course.title)} className="enroll-btn">
-              Enroll
-            </button>
+            <div className="course-actions">
+              <button onClick={() => setSelectedCourse(course)} className="features-btn">
+                View Features
+              </button>
+              <button onClick={() => handleEnroll(course.title)} className="enroll-btn">
+                Enroll
+              </button>
+            </div>
           </div>
         ))}
 
         {filteredCourses.length === 0 && <p>No courses found.</p>}
       </div>
+
+      {selectedCourse && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>{selectedCourse.title} – What You Get</h2>
+            <ul>
+              {selectedCourse.features.map((feature, index) => (
+                <li key={index}>{feature}</li>
+              ))}
+            </ul>
+            <button onClick={() => setSelectedCourse(null)} className="close-btn">
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 export default Courses;
-
-
-

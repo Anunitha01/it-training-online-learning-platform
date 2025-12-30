@@ -3,7 +3,6 @@ const cors = require("cors");
 
 // Existing routes
 const coursesRoute = require("./routes/courses");
-const teamRoute = require("./routes/team");
 
 // New auth route
 const authRoute = require("./routes/auth");
@@ -19,7 +18,6 @@ app.get("/", (req, res) => {
 
 // Existing routes
 app.use("/courses", coursesRoute);
-app.use("/team", teamRoute);
 
 // New auth routes
 app.use("/api/auth", authRoute);
