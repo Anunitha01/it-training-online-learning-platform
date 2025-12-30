@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom"; // ✅ import Link
 
 export default function Navbar() {
   return (
@@ -15,15 +16,17 @@ export default function Navbar() {
 
       {/* CENTER: Links */}
       <nav className="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Courses</a>
-        <a href="#">About</a>
-        <a href="#">Blog</a>
-        <a href="#">FAQ</a>
+        <Link to="/">Home</Link>
+        <Link to="/courses">Courses</Link>  {/* ✅ updated */}
+        <Link to="/about">About</Link>
+        <Link to="/blog">Blog</Link>
+        <Link to="/faq">FAQ</Link>
       </nav>
 
       {/* RIGHT: Login */}
-      <button className="login-btn">Login</button>
+      <Link to="/login">
+        <button className="login-btn">Login</button>
+      </Link>
     </header>
   );
 }

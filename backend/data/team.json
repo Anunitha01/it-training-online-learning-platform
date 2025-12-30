@@ -2,7 +2,20 @@
   {
     "id": 1,
     "name": "Anunitha",
-    "role": "Frontend Developer",
-    "bio": "Responsible for React components and frontend structure."
+    "role": "Chief Learning Officer (CLO) & Founder",
+    "description": "Leads the academic vision of BrightPath by designing industry-relevant learning paths and ensuring high-quality, practical IT training for all learners."
+  },
+  {
+    "id": 2,
+    "name": "Venmadhi",
+    "role": "Head of Digital Platform & Technology",
+    "description": "Oversees the development and performance of the online learning platform, ensuring a smooth, responsive, and user-friendly digital experience."
+  },
+  {
+    "id": 3,
+    "name": "Menakha",
+    "role": "Learning Experience & Operations Manager",
+    "description": "Manages day-to-day learning operations and ensures an engaging, well-structured learning experience that supports student progress and success."
   }
 ]
+
