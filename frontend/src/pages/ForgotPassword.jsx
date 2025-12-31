@@ -1,63 +1,64 @@
 import { useState } from "react";
 import axios from "axios";
 import "../Style/Auth.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+
+import robot from "../assets/robot_6.png";
+import laptop from "../assets/laptop_auth.png";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   const handleForgotPassword = async (e) => {
     e.preventDefault();
-
-    if (!emailRegex.test(email)) {
-      setMessage("⚠️ Please enter a valid email (e.g., name@gmail.com)");
-      return;
-    }
-
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/forgot-password", { email });
-      setMessage(res.data.message || "📩 Password reset link sent to your email!");
-    } catch (err) {
-      if (err.response && err.response.data.message) {
-        setMessage(`❌ ${err.response.data.message}`);
-      } else {
-        setMessage("😅 Something went wrong. Please try again.");
-      }
+      const res = await axios.post(
+        "http://localhost:5000/api/auth/forgot-password",
+        { email }
+      );
+      setMessage(res.data.message || "Reset link sent!");
+    } catch {
+      setMessage("Something went wrong. Try again.");
     }
   };
 
   return (
-    <div className="page-wrapper">
-      {/* Render Navbar only if not already mounted */}
-      {document.querySelectorAll("nav").length === 0 && <Navbar />}
+    <div className="auth-page">
+      <main className="auth-main">
 
-      <div className="page-content">
-        <div className="forgot-container">
-          <h2>Forgot Password</h2>
-
-          <form className="forgot-form" onSubmit={handleForgotPassword}>
-            <label>Email:</label>
-            <input
-              type="email"
-              placeholder="Enter your registered email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-
-            <button type="submit">Send Reset Link</button>
-          </form>
-
-          {message && <p className="forgot-message">{message}</p>}
+        <div className="auth-hero">
+          <h1>Forgot Password</h1>
+          <p>Enter your email to receive a reset link.</p>
         </div>
-      </div>
 
-      {/* Render Footer only if not already mounted */}
-      {document.querySelectorAll("footer").length === 0 && <Footer />}
+        <div className="auth-visuals">
+          {/* LEFT IMAGE */}
+          <img src={robot} className="auth-image left" alt="Robot" />
+
+          {/* CARD */}
+          <section className="auth-card">
+            <h2>Reset Password</h2>
+
+            <form className="auth-form" onSubmit={handleForgotPassword}>
+              <label>Email Address</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+
+              <button type="submit">Send Reset Link</button>
+            </form>
+
+            {message && <p className="auth-message">{message}</p>}
+          </section>
+
+          {/* RIGHT IMAGE */}
+          <img src={laptop} className="auth-image right" alt="Laptop" />
+        </div>
+
+      </main>
     </div>
   );
 }

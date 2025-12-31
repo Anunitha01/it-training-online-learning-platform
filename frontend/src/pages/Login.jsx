@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../Style/Auth.css"; // make sure path matches your CSS file
+import "../Style/Auth.css";
+
+import robot from "../assets/robot_6.png";
+import laptop from "../assets/laptop_auth.png";
+import courseIcon from "../assets/icon_course.png";
+import certIcon from "../assets/icon_certificate.png";
+import supportIcon from "../assets/icon_support.png";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -9,29 +15,8 @@ function Login() {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
-  // ✅ Email validation regex
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  // ✅ Password validation regex
-  // At least 8 characters, one letter, one number, one special char
-  const passwordRegex =
-    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    // 🔒 Frontend validation before sending request
-    if (!emailRegex.test(email)) {
-      setMessage("Please enter a valid email (e.g., xxx@gmail.com)");
-      return;
-    }
-
-    if (!passwordRegex.test(password)) {
-      setMessage(
-        "Password must be at least 8 characters, include letters, numbers, and a special symbol."
-      );
-      return;
-    }
 
     try {
       const res = await axios.post("http://localhost:5000/api/auth/login", {
@@ -40,58 +25,77 @@ function Login() {
       });
 
       localStorage.setItem("token", res.data.token);
-      setMessage("🎉 Welcome back! You’ve logged in successfully.");
-
-      setTimeout(() => {
-        navigate("/courses");
-      }, 1000);
-    } catch (err) {
-      if (err.response && err.response.data.message) {
-        setMessage(err.response.data.message);
-      } else {
-        setMessage("🔑 Login failed — check your email and password, then try again.");
-      }
+      setMessage("🎉 Welcome back!");
+      setTimeout(() => navigate("/courses"), 1000);
+    } catch {
+      setMessage("Login failed. Please check your credentials.");
     }
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
+    <div className="auth-page">
+      <main className="auth-main">
 
-      <form className="login-form" onSubmit={handleLogin}>
-        <label>Email:</label>
-        <input
-          type="email"
-          placeholder="xxx@gmail.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <div className="auth-hero">
+          <h1>Welcome Back</h1>
+          <p>Log in to continue your learning journey.</p>
+        </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          placeholder="Enter your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div className="auth-visuals">
+          <img src={robot} className="auth-image left" alt="" />
 
-          <button type="submit">Login</button>
-        </form>
+          <section className="auth-card">
+            <h2>Login</h2>
 
-      {message && <p className="login-message">{message}</p>}
+            <form className="auth-form" onSubmit={handleLogin}>
+              <label>Email Address</label>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
 
-      <p>
-        Don’t have an account? <Link to="/register">Register</Link>
-      </p>
+              <label>Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
 
-      {/* 🔑 Forgot Password Option */}
-      <p>
-        <Link to="/forgot-password" className="forgot-link">
-          Forgot Password?
-        </Link>
-      </p>
+              <button type="submit">Login</button>
+            </form>
+
+            {message && <p className="auth-message">{message}</p>}
+
+            <p className="auth-link">
+              Don’t have an account? <Link to="/register">Register</Link>
+            </p>
+
+            <p className="auth-link">
+              <Link to="/forgot-password">Forgot Password?</Link>
+            </p>
+          </section>
+
+          <img src={laptop} className="auth-image right" alt="" />
+        </div>
+
+        <div className="auth-features">
+          <div className="feature-item">
+            <img src={courseIcon} alt="" /> Expert-led courses
+          </div>
+          <div className="feature-divider"></div>
+          <div className="feature-item">
+            <img src={certIcon} alt="" /> Certificates
+          </div>
+          <div className="feature-divider"></div>
+          <div className="feature-item">
+            <img src={supportIcon} alt="" /> 24/7 Support
+          </div>
+        </div>
+
+      </main>
     </div>
   );
 }
