@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import "../style/auth.css";
+import "../Style/Auth.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 

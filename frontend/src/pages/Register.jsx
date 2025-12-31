@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../style/auth.css";
+import "../Style/Auth.css";
 
 function Register() {
   const [name, setName] = useState("");
@@ -75,15 +75,16 @@ function Register() {
           required
         />
 
-        <button type="submit">Register</button>
-      </form>
+          <button type="submit">Register</button>
+        </form>
 
       {message && <p className="register-message">{message}</p>}
 
-      <p>
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
-    </div>
+        <p>
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </div>
+
   );
 }
 

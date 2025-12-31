@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../style/auth.css"; // make sure path matches your CSS file
+import "../Style/Auth.css"; // make sure path matches your CSS file
 
 function ResetPassword() {
   const { token } = useParams(); 
