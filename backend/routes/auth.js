@@ -3,26 +3,27 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 
 const router = express.Router();
-const SECRET_KEY = "mySecretKey"; // For JWT
+const SECRET_KEY = "mySecretKey"; 
 
-// Path to users JSON file
+
 const usersFilePath = path.join(__dirname, "../data/users.json");
 
-// Helper: read users from JSON
+
 function readUsers() {
   if (!fs.existsSync(usersFilePath)) return [];
   const data = fs.readFileSync(usersFilePath, "utf-8");
   return JSON.parse(data);
 }
 
-// Helper: write users to JSON
+
 function writeUsers(users) {
   fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
 }
 
-// REGISTER
+
 router.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -40,7 +41,7 @@ router.post("/register", async (req, res) => {
   res.json({ message: "User registered successfully" });
 });
 
-// LOGIN
+
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -53,6 +54,57 @@ router.post("/login", async (req, res) => {
 
   const token = jwt.sign({ email: user.email }, SECRET_KEY, { expiresIn: "1h" });
   res.json({ message: "Login successful", token });
+});
+
+
+router.post("/forgot-password", (req, res) => {
+  const { email } = req.body;
+  const users = readUsers();
+  const user = users.find(u => u.email === email);
+
+  if (!user) {
+    return res.status(400).json({ message: "User with this email does not exist" });
+  }
+
+  
+  const resetToken = crypto.randomBytes(32).toString("hex");
+  const expiry = Date.now() + 3600000; 
+
+  
+  user.resetToken = resetToken;
+  user.resetTokenExpiry = expiry;
+  writeUsers(users);
+
+  
+  const resetLink = `http://localhost:3000/reset-password/${resetToken}`;
+  res.json({ message: "Password reset link generated", resetLink });
+});
+
+
+router.post("/reset-password/:token", async (req, res) => {
+  const { token } = req.params;
+  const { password } = req.body;
+
+  const users = readUsers();
+  const user = users.find(
+    u => u.resetToken === token && u.resetTokenExpiry > Date.now()
+  );
+
+  if (!user) {
+    return res.status(400).json({ message: "Invalid or expired token" });
+  }
+
+  
+  const hashedPassword = await bcrypt.hash(password, 10);
+  user.password = hashedPassword;
+
+  
+  delete user.resetToken;
+  delete user.resetTokenExpiry;
+
+  writeUsers(users);
+
+  res.json({ message: "Password reset successful. You can now log in." });
 });
 
 module.exports = router;

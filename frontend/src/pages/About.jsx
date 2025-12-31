@@ -1,4 +1,4 @@
-import "./About.css";
+import "../style/About.css";
 import aboutImage from "../assets/robot_5.png";
 import anunithaImg from "../assets/robot_3.png";
 import venmadhiImg from "../assets/venmadhi.jpeg";

@@ -1,102 +1,215 @@
+import "../style/Blog.css";
 import { useState } from "react";
-import "./Blog.css";
+import blogImg from "../assets/robot_5.png";
 
-const blogPosts = [
+
+const blogData = [
   {
-    id: 1,
-    title: "Why IT Skills Are Essential Today",
-    summary: "Building IT skills opens doors to modern career opportunities.",
-    content:
-      "In the modern workplace, IT skills are no longer optional—they’re essential. From software development to network management, understanding technology equips you to solve real-world problems efficiently. Learning IT also enhances your adaptability in a rapidly evolving job market."
+    title: "How to Learn Python in 5 Days",
+    intro:
+      "Python is a beginner-friendly programming language widely used in data science, automation, and web development. Here are simple tips to help you get started in just 5 days.",
+    content: [
+      "Start with basic concepts such as variables, data types, and input/output to build a strong foundation before moving forward.",
+      "Practice simple programs like calculators and number guessing games to reinforce what you learn through hands-on coding.",
+      "Learn conditional statements and loops to understand how program flow and decision-making work in real applications.",
+      "Write small programs every day instead of only watching tutorials, as active practice builds real understanding.",
+      "Use online coding platforms to practice, test your code, and get instant feedback on your solutions.",
+      "Revise what you learned at the end of each day to strengthen memory and identify areas that need improvement.",
+      "Read and understand error messages instead of ignoring them, as debugging is a critical skill in programming.",
+      "Focus on understanding logic and problem-solving rather than trying to memorise syntax."
+    ]
   },
   {
-    id: 2,
-    title: "The Benefits of Online Learning for Professionals",
-    summary: "Flexible, self-paced learning helps you grow your career.",
-    content:
-      "Online learning allows professionals to acquire new skills without disrupting their daily schedules. Platforms like BrightPath offer courses in coding, data analytics, and cybersecurity that you can complete at your own pace. This approach ensures continuous skill development and better career prospects."
+    title: "Tips to Start Your Career in IT as a Beginner",
+    intro:
+      "Starting a career in IT can feel overwhelming, but the right approach makes learning easier and more effective.",
+    content: [
+      "Begin with programming fundamentals before moving to advanced topics to avoid confusion later on.",
+      "Choose one learning path and stay consistent instead of jumping between multiple technologies.",
+      "Focus on hands-on practice rather than memorising concepts, as practical exposure builds confidence.",
+      "Build small projects regularly to strengthen understanding and apply what you learn in real scenarios.",
+      "Develop basic problem-solving and logical thinking skills, as these are essential across all IT roles.",
+      "Learn how to search for solutions effectively using documentation and trusted online resources.",
+      "Do not compare your learning speed with others, as everyone progresses at a different pace.",
+      "Stay patient and disciplined, because consistency matters more than talent in IT learning."
+    ]
   },
   {
-    id: 3,
-    title: "Top Emerging IT Careers in 2025",
-    summary: "Explore high-demand roles like cloud computing and cybersecurity.",
-    content:
-      "Technology is reshaping the job market. Careers in cloud computing, artificial intelligence, and cybersecurity are seeing exponential growth. By focusing on these areas, learners can secure positions that are both lucrative and future-proof."
+    title: "Why Learning Programming Fundamentals Matters",
+    intro:
+      "Strong fundamentals are the backbone of long-term success in any IT or programming career.",
+    content: [
+      "Learning fundamentals builds strong logical thinking skills that help you understand how programs actually work.",
+      "A solid foundation makes learning advanced programming languages and frameworks much easier.",
+      "Fundamentals improve problem-solving ability by teaching you how to break down complex tasks.",
+      "Understanding core concepts helps you see how software systems function behind the scenes.",
+      "Strong fundamentals prepare learners for multiple IT career paths instead of locking them into one technology.",
+      "It reduces dependency on tutorials because you can reason through problems independently.",
+      "Fundamentals make debugging easier because you understand why errors happen, not just how to fix them.",
+      "Long-term career growth depends more on strong fundamentals than on trendy tools or frameworks."
+    ]
   },
   {
-    id: 4,
-    title: "How Hands-On Projects Accelerate Learning",
-    summary: "Practical exercises reinforce theoretical knowledge.",
-    content:
-      "Theory alone isn’t enough. Projects, mini apps, and simulations allow learners to apply their knowledge immediately. This hands-on approach strengthens understanding, builds confidence, and makes your portfolio attractive to employers."
+    title: "Common Mistakes Beginners Make When Learning Programming",
+    intro:
+      "Many beginners struggle not because of lack of ability, but because of common learning mistakes.",
+    content: [
+      "Trying to learn too many languages at once leads to confusion and shallow understanding.",
+      "Skipping fundamentals causes problems later when concepts become more complex.",
+      "Relying too much on tutorials without practicing independently slows real progress.",
+      "Avoiding errors instead of learning from them limits problem-solving growth.",
+      "Not revising past topics causes learners to forget important concepts.",
+      "Comparing progress with others creates unnecessary stress and self-doubt.",
+      "Learning without building projects reduces confidence and real-world readiness.",
+      "Inconsistency in learning habits delays improvement more than difficulty itself."
+    ]
   },
   {
-    id: 5,
-    title: "Data Literacy: A Must-Have Skill",
-    summary: "Understanding data empowers better decision-making.",
-    content:
-      "Data literacy is a crucial skill for professionals across industries. Being able to clean, analyze, and visualize data helps you make informed decisions, solve problems efficiently, and communicate insights effectively to your team or clients."
+    title: "How Building Small Projects Improves Your IT Skills",
+    intro:
+      "Small projects play a big role in turning theory into real, usable skills.",
+    content: [
+      "Projects force you to apply concepts instead of memorising them.",
+      "They help you understand how different components work together.",
+      "Small projects make debugging and problem-solving more natural.",
+      "They build confidence by showing visible progress.",
+      "Projects help identify weak areas that need more practice.",
+      "They prepare you for real-world development tasks.",
+      "Employers value projects because they show practical ability.",
+      "Consistent project work creates a strong learning habit."
+    ]
   },
   {
-    id: 6,
-    title: "The Importance of Cybersecurity Awareness",
-    summary: "Protecting digital assets is key for everyone.",
-    content:
-      "With growing reliance on digital systems, cybersecurity awareness is critical. Knowing how to safeguard personal and organizational data prevents breaches, protects reputations, and ensures smooth operation in today’s digital economy."
+    title: "How to Stay Motivated While Learning IT Skills",
+    intro:
+      "Learning IT takes time, and motivation plays a huge role in long-term success.",
+    content: [
+      "Set realistic goals instead of trying to master everything quickly.",
+      "Track small wins to see your progress clearly.",
+      "Learn at a steady pace rather than pushing until burnout.",
+      "Build projects that genuinely interest you.",
+      "Take breaks when needed without feeling guilty.",
+      "Avoid comparing yourself with advanced learners.",
+      "Focus on improvement, not perfection.",
+      "Remember why you started and revisit your goals regularly."
+    ]
   },
   {
-    id: 7,
-    title: "The Role of Cloud Computing in Modern IT",
-    summary: "Cloud skills are crucial for scalable and flexible solutions.",
-    content:
-      "Cloud computing is now central to modern IT infrastructure. Learning cloud platforms like AWS, Azure, or Google Cloud enables professionals to deploy scalable applications, manage virtual servers, and optimize resources efficiently, giving a competitive edge in the job market."
+    title: "How to Build a Daily IT Learning Routine That Actually Works",
+    intro:
+      "Consistency matters more than long study hours when learning IT skills.",
+    content: [
+      "Set a fixed daily learning time to build habit and discipline.",
+      "Break learning into small, focused sessions instead of long marathons.",
+      "Always include hands-on practice, not just reading or watching.",
+      "End each session by reviewing what you learned.",
+      "Write down doubts to clarify later instead of getting stuck.",
+      "Avoid multitasking during learning sessions.",
+      "Track progress weekly to stay motivated.",
+      "Adjust your routine based on what works best for you."
+    ]
   },
   {
-    id: 8,
-    title: "Artificial Intelligence: Shaping the Future",
-    summary: "AI knowledge opens doors to innovative IT opportunities.",
-    content:
-      "Artificial intelligence and machine learning are transforming industries from healthcare to finance. Gaining AI skills allows learners to develop intelligent systems, automate processes, and contribute to innovative solutions that shape the future of technology."
+    title: "Why Debugging Is One of the Most Important Skills in IT",
+    intro:
+      "Debugging is not a weakness — it is a core skill every developer must master.",
+    content: [
+      "Errors help you understand how code actually works.",
+      "Debugging improves logical thinking and patience.",
+      "Reading error messages carefully saves time.",
+      "Breaking problems into smaller parts makes debugging easier.",
+      "Learning to debug reduces dependency on others.",
+      "Good debuggers become better problem solvers.",
+      "Debugging builds confidence through persistence.",
+      "Every professional developer debugs daily."
+    ]
   },
   {
-    id: 9,
-    title: "Networking Skills Every IT Professional Needs",
-    summary: "Understanding networks ensures smooth and secure connectivity.",
-    content:
-      "Networking is the backbone of IT infrastructure. Learning about routers, switches, protocols, and network security equips professionals to design, maintain, and troubleshoot robust networks, ensuring efficient and secure connectivity in organizations."
+    title: "How to Choose the Right Programming Language as a Beginner",
+    intro:
+      "Choosing the right first language can make learning smoother and less stressful.",
+    content: [
+      "Choose languages known for beginner-friendliness like Python or JavaScript.",
+      "Focus on learning concepts, not language popularity.",
+      "Avoid switching languages too early.",
+      "Consider your career goal before choosing.",
+      "Stick with one language until fundamentals are strong.",
+      "Understand that concepts transfer between languages.",
+      "Do not chase trends blindly.",
+      "Clarity matters more than speed."
+    ]
   },
   {
-    id: 10,
-    title: "DevOps: Bridging Development and Operations",
-    summary: "DevOps practices improve software delivery and collaboration.",
-    content:
-      "DevOps combines software development and IT operations to accelerate deployment cycles. Learning DevOps tools and practices—like CI/CD, containerization, and automation—helps professionals deliver high-quality software efficiently and fosters better collaboration between teams."
+    title: "What Employers Actually Look for in Entry-Level IT Candidates",
+    intro:
+      "Employers value mindset and skills more than perfect resumes.",
+    content: [
+      "Problem-solving ability matters more than certificates.",
+      "Basic communication skills are essential.",
+      "Projects show initiative and real understanding.",
+      "Consistency proves reliability.",
+      "Willingness to learn is highly valued.",
+      "Strong fundamentals stand out.",
+      "Good attitude outweighs minor technical gaps.",
+      "Practical experience beats theory alone."
+    ]
   }
 ];
 
 export default function Blog() {
-  const [expandedPostId, setExpandedPostId] = useState(null);
+  const [openIndex, setOpenIndex] = useState(null);
 
-  const toggleReadMore = (id) => {
-    setExpandedPostId(expandedPostId === id ? null : id);
+  const toggleReadMore = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <div className="blog-page">
-      <h1 className="blog-title">Our Blog</h1>
+    <section className="blog">
+      <div className="blog-hero">
+        <h1 className="blog-title">BrightPath Learning Journal</h1>
+        <p className="blog-subtitle">
+          Practical insights, guided learning advice, and real-world IT experiences
+          to help you grow with clarity and confidence.
+        </p>
+      </div>
 
-      <div className="blog-grid">
-        {blogPosts.map((post) => (
-          <div key={post.id} className="blog-card">
-            <h3>{post.title}</h3>
-            <p>{post.summary}</p>
-            {expandedPostId === post.id && <p className="blog-content">{post.content}</p>}
-            <button onClick={() => toggleReadMore(post.id)}>
-              {expandedPostId === post.id ? "Show Less" : "Read More"}
-            </button>
+      <div className="blog-list">
+        {blogData.map((post, index) => (
+          <div
+            key={index}
+            className={`blog-card ${openIndex === index ? "expanded" : ""}`}
+          >
+            <img src={blogImg} alt="Blog visual" className="blog-image" />
+
+            <div className="blog-content">
+              <h2 className="blog-heading">{post.title}</h2>
+              <p className="blog-intro">{post.intro}</p>
+
+              {openIndex === index && (
+                <ul className="blog-points">
+                  {post.content.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
+              )}
+
+              <button
+                className="blog-read-btn"
+                onClick={() => toggleReadMore(index)}
+              >
+                {openIndex === index ? "Read Less ↑" : "Read More →"}
+              </button>
+            </div>
           </div>
         ))}
       </div>
-    </div>
+
+      <div className="blog-bottom">
+        <p>
+          New articles are added regularly to support learners at every stage of
+          their IT journey.
+        </p>
+      </div>
+    </section>
   );
 }
