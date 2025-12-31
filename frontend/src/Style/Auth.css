@@ -1,64 +1,163 @@
-/* Container for the auth pages */
-.auth-container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 30px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
+/* ===============================
+   AUTH PAGE BACKGROUND
+================================ */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    180deg,
+    #eef5ff 0%,
+    #f6faff 45%,
+    #ffffff 100%
+  );
+
+  padding: 40px 20px;
 }
 
-/* Form styling */
+/* ===============================
+   AUTH CONTAINER
+================================ */
+
+.auth-container {
+  width: 100%;
+  max-width: 420px;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px);
+
+  border-radius: 28px;
+  padding: 42px 36px;
+
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  color: #0b1f3a;
+}
+
+/* ===============================
+   TITLE
+================================ */
+
+.auth-container h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 26px;
+  color: #0b1f3a;
+}
+
+/* ===============================
+   FORM
+================================ */
+
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 18px;
 }
 
-/* Input fields */
+/* ===============================
+   INPUTS
+================================ */
+
 .auth-form input {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+
+  font-size: 15px;
+  color: #0b1f3a;
+
+  transition: all 0.25s ease;
 }
 
-/* Buttons */
+.auth-form input::placeholder {
+  color: #94a3b8;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+/* ===============================
+   BUTTON
+================================ */
+
 .auth-form button {
-  padding: 10px;
+  margin-top: 8px;
+
+  background: linear-gradient(135deg, #2563eb, #1976ff);
+  color: #ffffff;
+
   border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
+  border-radius: 999px;
+  padding: 14px;
+
   font-size: 16px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+
+  box-shadow: 0 14px 34px rgba(37, 99, 235, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .auth-form button:hover {
-  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 22px 48px rgba(37, 99, 235, 0.45);
 }
 
-/* Messages */
+/* ===============================
+   MESSAGE
+================================ */
+
 .message {
-  margin-top: 15px;
+  margin-top: 18px;
   font-size: 14px;
-  color: green;
+  text-align: center;
+  color: #2563eb;
+  font-weight: 600;
 }
 
-/* Links */
+/* ===============================
+   LINKS
+================================ */
+
 .auth-container p {
-  margin-top: 10px;
+  margin-top: 22px;
+  text-align: center;
   font-size: 14px;
+  color: #475569;
 }
 
 .auth-container p a {
-  color: #007bff;
+  color: #2563eb;
+  font-weight: 700;
   text-decoration: none;
 }
 
 .auth-container p a:hover {
   text-decoration: underline;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 36px 28px;
+  }
+
+  .auth-container h2 {
+    font-size: 26px;
+  }
 }

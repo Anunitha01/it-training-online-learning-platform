@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../style/Auth.css";// same CSS used for Login.jsx
+import "../style/Auth.css";
 
 function Register() {
   const [name, setName] = useState("");
@@ -21,7 +21,6 @@ function Register() {
 
       setMessage(res.data.message);
 
-      // After a short delay, redirect to login page
       setTimeout(() => {
         navigate("/login");
       }, 1000);
@@ -35,42 +34,44 @@ function Register() {
   };
 
   return (
-    <div className="auth-container">
-      <h2>Register</h2>
+    <div className="auth-page">
+      <div className="auth-container">
+        <h2>Create Account</h2>
 
-      <form className="auth-form" onSubmit={handleRegister}>
-        <input
-          type="text"
-          placeholder="Full Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
+        <form className="auth-form" onSubmit={handleRegister}>
+          <input
+            type="text"
+            placeholder="Full name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+          <input
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+          <input
+            type="password"
+            placeholder="Create password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-        <button type="submit">Register</button>
-      </form>
+          <button type="submit">Register</button>
+        </form>
 
-      {message && <p className="message">{message}</p>}
+        {message && <p className="message">{message}</p>}
 
-      <p>
-        Already have an account? <Link to="/login">Login</Link>
-      </p>
+        <p>
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </div>
     </div>
   );
 }

@@ -1,42 +1,43 @@
 /* ===============================
-   HOME / HERO SECTION
-   =============================== */
+   GLOBAL HOME WRAPPER
+================================ */
 
 .home {
-  background-image: url("../assets/background.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  padding: clamp(64px, 6vw, 96px) 60px 60px;
+  background: linear-gradient(
+    180deg,
+    #f4f9ff 0%,
+    #eef5ff 40%,
+    #ffffff 100%
+  );
+  padding: clamp(72px, 6vw, 110px) 60px 80px;
 }
 
 /* ===============================
-   HERO GRID (TEXT + IMAGE)
-   =============================== */
+   HERO GRID
+================================ */
 
 .home-inner {
   max-width: 1400px;
-  margin: 0 auto 56px;
+  margin: 0 auto 96px;
 
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   align-items: center;
-  gap: 48px;
+  gap: 72px;
 }
 
 /* ===============================
-   LEFT — TEXT
-   =============================== */
+   HERO TEXT
+================================ */
 
 .home-text {
   max-width: 720px;
 }
 
 .hero-title {
-  font-size: clamp(56px, 6vw, 88px);
-  line-height: 1.1;
-  margin-bottom: 24px;
+  font-size: clamp(56px, 6vw, 86px);
+  line-height: 1.08;
+  margin-bottom: 28px;
   color: #0b1f3a;
   font-weight: 500;
 }
@@ -51,39 +52,41 @@
 }
 
 .hero-description {
-  font-size: clamp(20px, 2vw, 26px);
-  line-height: 1.6;
-  color: #6b7280;
-  max-width: 600px;
-  margin-bottom: 32px;
+  font-size: clamp(20px, 2vw, 25px);
+  line-height: 1.65;
+  color: #5b677a;
+  max-width: 620px;
+  margin-bottom: 40px;
 }
 
 /* ===============================
-   CTA BUTTON
-   =============================== */
+   HERO CTA
+================================ */
 
 .hero-btn {
-  background: #1976ff;
-  color: white;
+  background: linear-gradient(135deg, #2563eb, #1976ff);
+  color: #ffffff;
+
   border: none;
-  padding: 16px 38px;
+  padding: 16px 42px;
   border-radius: 999px;
+
   font-size: 17px;
   font-weight: 700;
   cursor: pointer;
 
-  box-shadow: 0 12px 28px rgba(25, 118, 255, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 18px 36px rgba(37, 99, 235, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .hero-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(25, 118, 255, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 26px 50px rgba(37, 99, 235, 0.45);
 }
 
 /* ===============================
-   RIGHT — IMAGE
-   =============================== */
+   HERO IMAGE
+================================ */
 
 .home-image {
   display: flex;
@@ -92,36 +95,36 @@
 
 .home-image img {
   width: 100%;
-  max-width: 680px;
+  max-width: 640px;
   height: auto;
-  filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 50px 70px rgba(0, 0, 0, 0.18));
 }
 
 /* ===============================
    STATS SECTION
-   =============================== */
+================================ */
 
 .stats-wrapper {
   display: flex;
   justify-content: center;
+  margin-bottom: 120px;
 }
 
 .stats-section {
   width: 100%;
-  max-width: 1400px;
-  margin: 0;
+  max-width: 1300px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(18px);
 
-  padding: 34px 64px;
+  padding: 36px 72px;
   border-radius: 999px;
 
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.1);
 }
 
 .stat-item {
@@ -131,8 +134,8 @@
 }
 
 .stat-icon {
-  width: 56px;
-  height: 56px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
 
   display: flex;
@@ -144,17 +147,17 @@
 }
 
 .stat-icon.blue {
-  background: #1976ff;
+  background: linear-gradient(135deg, #2563eb, #1976ff);
 }
 
 .stat-icon.yellow {
-  background: #f5c518;
+  background: linear-gradient(135deg, #facc15, #f5c518);
   color: #0b1f3a;
 }
 
 .stat-item h3 {
   margin: 0;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 800;
   color: #0b1f3a;
 }
@@ -162,23 +165,131 @@
 .stat-item p {
   margin: 0;
   font-size: 16px;
-  color: #6b7280;
+  color: #64748b;
 }
 
 .stat-divider {
-  width: 3px;
-  height: 100px;
+  width: 2px;
+  height: 90px;
   background: rgba(0, 0, 0, 0.12);
 }
 
 /* ===============================
+   COURSE PREVIEW
+================================ */
+
+.course-preview {
+  max-width: 1400px;
+  margin: 0 auto 120px;
+  padding: 0 40px;
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 52px;
+}
+
+.section-title {
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 800;
+  color: #0b1f3a;
+}
+
+.view-more-link {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.view-more-link:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   COURSE CARDS
+================================ */
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+.course-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+
+  border-radius: 32px;
+  padding: 40px 32px;
+
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 36px 90px rgba(15, 23, 42, 0.18);
+}
+
+.course-card img {
+  width: 120px;
+  margin-bottom: 26px;
+}
+
+.course-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: #0b1f3a;
+}
+
+.course-card p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #64748b;
+}
+
+/* ===============================
+   WHY SECTION
+================================ */
+
+.why-section {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.why-item h4 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: #2563eb;
+}
+
+.why-item p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #64748b;
+}
+
+/* ===============================
    RESPONSIVE
-   =============================== */
+================================ */
 
 @media (max-width: 900px) {
   .home-inner {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
   }
 
   .home-image {
@@ -186,17 +297,27 @@
   }
 
   .hero-title {
-    font-size: 38px;
+    font-size: 40px;
   }
 
   .stats-section {
     flex-direction: column;
-    gap: 24px;
-    padding: 32px;
-    border-radius: 32px;
+    gap: 26px;
+    padding: 36px;
+    border-radius: 36px;
   }
 
   .stat-divider {
     display: none;
+  }
+
+  .course-header {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .course-grid,
+  .why-grid {
+    grid-template-columns: 1fr;
   }
 }
