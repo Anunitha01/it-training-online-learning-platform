@@ -1,12 +1,14 @@
 import "../style/Home.css";
 import { Link } from "react-router-dom";
 import robot1 from "../assets/robot_1.png";
-import robot2 from "../assets/robot_2.png";
-import robot3 from "../assets/robot_3.png";
+import code from "../assets/code.jpg";
+import cyber from "../assets/cyber.jpg";
+import data from "../assets/data.jpg";
 
 export default function Home() {
   return (
     <section className="home">
+      <div className="snow" aria-hidden="true"></div>
 
       {/* HERO */}
       <div className="home-inner">
@@ -73,32 +75,47 @@ export default function Home() {
         </div>
 
         <div className="course-grid">
-          <div className="course-card">
-            <img src={robot2} alt="Coding" />
-            <h3>Introduction to Coding</h3>
-            <p>
-              Learn programming fundamentals through simple, guided,
-              hands-on exercises designed for beginners.
-            </p>
-          </div>
+          <article className="course-card">
+            <div className="course-media">
+              <img src={code} alt="Introduction to Coding" />
+            </div>
 
-          <div className="course-card">
-            <img src={robot3} alt="Cybersecurity" />
-            <h3>Cybersecurity Basics</h3>
-            <p>
-              Understand online safety, ethical hacking concepts,
-              and how digital systems stay protected.
-            </p>
-          </div>
+            <div className="course-body">
+              <h3>Introduction to Coding</h3>
+              <p className="course-desc">
+                Learn programming fundamentals through simple, guided exercises
+                and mini projects designed for beginners.
+              </p>
+            </div>
+          </article>
 
-          <div className="course-card">
-            <img src={robot1} alt="Data Science" />
-            <h3>Data & Logical Thinking</h3>
-            <p>
-              Build problem-solving skills using data,
-              logic, and real-world case studies.
-            </p>
-          </div>
+          <article className="course-card">
+            <div className="course-media">
+              <img src={cyber} alt="Cybersecurity Basics" />
+            </div>
+
+            <div className="course-body">
+              <h3>Cybersecurity Basics</h3>
+              <p className="course-desc">
+                Understand online safety, ethical hacking concepts, and how
+                digital systems stay protected.
+              </p>
+            </div>
+          </article>
+
+          <article className="course-card">
+            <div className="course-media">
+              <img src={data} alt="Data & Logical Thinking" />
+            </div>
+
+            <div className="course-body">
+              <h3>Data & Logical Thinking</h3>
+              <p className="course-desc">
+                Build strong logic and decision-making skills using real-world
+                examples and simple data thinking.
+              </p>
+            </div>
+          </article>
         </div>
       </div>
 
@@ -132,7 +149,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }
