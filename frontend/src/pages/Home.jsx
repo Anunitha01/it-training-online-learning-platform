@@ -65,7 +65,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* COURSE PREVIEW */}
       <div className="course-preview">
         <div className="course-header">
           <h2 className="section-title">Popular Learning Paths</h2>
