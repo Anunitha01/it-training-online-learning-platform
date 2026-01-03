@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "title": "Web & GUI Development",
+    "title": "PixelCraft: Web Design & GUI Mastery",
     "level": "Beginner to Intermediate",
     "price": "RM 200",
     "duration": "4–6 weeks",
@@ -14,7 +14,7 @@
   },
   {
     "id": 2,
-    "title": "Mobile App Development",
+    "title": "AppForge: Mobile Development Essentials",
     "level": "Intermediate",
     "price": "RM 300",
     "duration": "6–8 weeks",
@@ -27,7 +27,7 @@
   },
   {
     "id": 3,
-    "title": "Data Science & Analytics",
+    "title": "DataMinds: Analytics & Insights Lab",
     "level": "Beginner to Intermediate",
     "price": "RM 350",
     "duration": "6–8 weeks",
@@ -40,7 +40,7 @@
   },
   {
     "id": 4,
-    "title": "Cybersecurity & Networking",
+    "title": "CyberSentinel: Network & Security Academy",
     "level": "Intermediate",
     "price": "RM 150",
     "duration": "6–8 weeks",
@@ -53,7 +53,7 @@
   },
   {
     "id": 5,
-    "title": "Cloud Computing & DevOps",
+    "title": "CloudOps: DevOps & Cloud Mastery",
     "level": "Intermediate to Advanced",
     "price": "RM 170",
     "duration": "6–8 weeks",
@@ -66,7 +66,7 @@
   },
   {
     "id": 6,
-    "title": "Artificial Intelligence & Machine Learning",
+    "title": "AIMinds: AI & ML Fundamentals",
     "level": "Intermediate",
     "price": "RM 280",
     "duration": "6–8 weeks",
@@ -79,7 +79,7 @@
   },
   {
     "id": 7,
-    "title": "Professional & Career Development",
+    "title": "CareerLift: Skills & Growth Program",
     "level": "All learners",
     "price": "RM 190",
     "duration": "2–4 weeks",
@@ -92,7 +92,7 @@
   },
   {
     "id": 8,
-    "title": "Programming Fundamentals",
+    "title": "CodeStart: Beginner Programming Bootcamp",
     "level": "Complete Beginners",
     "price": "RM 100",
     "duration": "4–6 weeks",
@@ -105,7 +105,7 @@
   },
   {
     "id": 9,
-    "title": "Software Testing & Quality Assurance",
+    "title": "TestPro: QA & Software Testing Lab",
     "level": "Beginner to Intermediate",
     "price": "RM 210",
     "duration": "4–6 weeks",
@@ -117,4 +117,5 @@
     ]
   }
 ]
+
 
