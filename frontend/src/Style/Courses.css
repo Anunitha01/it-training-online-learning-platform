@@ -7,16 +7,16 @@
 }
 
 .courses-heading { 
-    font-size: 32px; 
-    font-weight: 700;
-    text-align: center; 
-    margin-bottom: 30px; 
-    background: linear-gradient(to right, #007bff, #00c6ff); 
-    background-clip: text; 
-    -webkit-background-clip: text;
-    color: transparent; 
-    -webkit-text-fill-color: transparent;  
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); 
+  font-size: 32px; 
+  font-weight: 700;
+  text-align: center; 
+  margin-bottom: 30px; 
+  background: linear-gradient(to right, #007bff, #00c6ff); 
+  background-clip: text; 
+  -webkit-background-clip: text;
+  color: transparent; 
+  -webkit-text-fill-color: transparent;  
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); 
 }
 
 .courses-controls {
@@ -70,7 +70,6 @@
   margin-bottom: 12px;
 }
 
-
 .course-card p {
   font-size: 14px;
   color: #555;
@@ -91,6 +90,7 @@
 
 .features-btn,
 .enroll-btn,
+.free-trial-btn,
 .close-btn {
   padding: 10px 14px;
   border: none;
@@ -99,9 +99,9 @@
   font-weight: bold;
 }
 
-/* Brighter View Features button */
+/* View Features Button */
 .features-btn {
-  background-color: #28a745;
+  background-color: #28a745; /* green */
   color: white;
 }
 
@@ -109,8 +109,19 @@
   background-color: #218838;
 }
 
+/* Free Trial Button */
+.free-trial-btn {
+  background-color: #ff9800; /* orange */
+  color: white;
+}
+
+.free-trial-btn:hover {
+  background-color: #e68a00;
+}
+
+/* Paid Enroll Button */
 .enroll-btn {
-  background-color: #007bff;
+  background-color: #007bff; /* blue */
   color: white;
 }
 
@@ -180,7 +191,33 @@
   color: #28a745;
 }
 
+.no-results {
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+  margin-top: 20px;
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
+}
+
+/* Badges */
+.free-badge {
+  background-color: #ff9800;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.paid-badge {
+  background-color: #007bff;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
 }

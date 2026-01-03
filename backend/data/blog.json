@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "title": "How to Learn Python in 5 Days",
+    "intro": "Python is a beginner-friendly programming language widely used in data science, automation, and web development. Here are simple tips to help you get started in just 5 days.",
+    "content": [
+      "Start with basic concepts such as variables, data types, and input/output to build a strong foundation before moving forward.",
+      "Practice simple programs like calculators and number guessing games to reinforce what you learn through hands-on coding.",
+      "Learn conditional statements and loops to understand how program flow and decision-making work in real applications.",
+      "Write small programs every day instead of only watching tutorials, as active practice builds real understanding.",
+      "Use online coding platforms to practice, test your code, and get instant feedback on your solutions.",
+      "Revise what you learned at the end of each day to strengthen memory and identify areas that need improvement.",
+      "Read and understand error messages instead of ignoring them, as debugging is a critical skill in programming.",
+      "Focus on understanding logic and problem-solving rather than trying to memorise syntax."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Tips to Start Your Career in IT as a Beginner",
+    "intro": "Starting a career in IT can feel overwhelming, but the right approach makes learning easier and more effective.",
+    "content": [
+      "Begin with programming fundamentals before moving to advanced topics to avoid confusion later on.",
+      "Choose one learning path and stay consistent instead of jumping between multiple technologies.",
+      "Focus on hands-on practice rather than memorising concepts, as practical exposure builds confidence.",
+      "Build small projects regularly to strengthen understanding and apply what you learn in real scenarios.",
+      "Develop basic problem-solving and logical thinking skills, as these are essential across all IT roles.",
+      "Learn how to search for solutions effectively using documentation and trusted online resources.",
+      "Do not compare your learning speed with others, as everyone progresses at a different pace.",
+      "Stay patient and disciplined, because consistency matters more than talent in IT learning."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Why Learning Programming Fundamentals Matters",
+    "intro": "Strong fundamentals are the backbone of long-term success in any IT or programming career.",
+    "content": [
+      "Learning fundamentals builds strong logical thinking skills that help you understand how programs actually work.",
+      "A solid foundation makes learning advanced programming languages and frameworks much easier.",
+      "Fundamentals improve problem-solving ability by teaching you how to break down complex tasks.",
+      "Understanding core concepts helps you see how software systems function behind the scenes.",
+      "Strong fundamentals prepare learners for multiple IT career paths instead of locking them into one technology.",
+      "It reduces dependency on tutorials because you can reason through problems independently.",
+      "Fundamentals make debugging easier because you understand why errors happen, not just how to fix them.",
+      "Long-term career growth depends more on strong fundamentals than on trendy tools or frameworks."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Common Mistakes Beginners Make When Learning Programming",
+    "intro": "Many beginners struggle not because of lack of ability, but because of common learning mistakes.",
+    "content": [
+      "Trying to learn too many languages at once leads to confusion and shallow understanding.",
+      "Skipping fundamentals causes problems later when concepts become more complex.",
+      "Relying too much on tutorials without practicing independently slows real progress.",
+      "Avoiding errors instead of learning from them limits problem-solving growth.",
+      "Not revising past topics causes learners to forget important concepts.",
+      "Comparing progress with others creates unnecessary stress and self-doubt.",
+      "Learning without building projects reduces confidence and real-world readiness.",
+      "Inconsistency in learning habits delays improvement more than difficulty itself."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "How Building Small Projects Improves Your IT Skills",
+    "intro": "Small projects play a big role in turning theory into real, usable skills.",
+    "content": [
+      "Projects force you to apply concepts instead of memorizing them.",
+      "They help you understand how different components work together.",
+      "Small projects make debugging and problem-solving more natural.",
+      "They build confidence by showing visible progress.",
+      "Projects help identify weak areas that need more practice.",
+      "They prepare you for real-world development tasks.",
+      "Employers value projects because they show practical ability.",
+      "Consistent project work creates a strong learning habit."
+    ]
+  },
+  {
+    "id": 6,
+    "title": "How to Stay Motivated While Learning IT Skills",
+    "intro": "Learning IT takes time, and motivation plays a huge role in long-term success.",
+    "content": [
+      "Set realistic goals instead of trying to master everything quickly.",
+      "Track small wins to see your progress clearly.",
+      "Learn at a steady pace rather than pushing until burnout.",
+      "Build projects that genuinely interest you.",
+      "Take breaks when needed without feeling guilty.",
+      "Avoid comparing yourself with advanced learners.",
+      "Focus on improvement, not perfection.",
+      "Remember why you started and revisit your goals regularly."
+    ]
+  },
+  {
+    "id": 7,
+    "title": "How to Build a Daily IT Learning Routine That Actually Works",
+    "intro": "Consistency matters more than long study hours when learning IT skills.",
+    "content": [
+      "Set a fixed daily learning time to build habit and discipline.",
+      "Break learning into small, focused sessions instead of long marathons.",
+      "Always include hands-on practice, not just reading or watching.",
+      "End each session by reviewing what you learned.",
+      "Write down doubts to clarify later instead of getting stuck.",
+      "Avoid multitasking during learning sessions.",
+      "Track progress weekly to stay motivated.",
+      "Adjust your routine based on what works best for you."
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Why Debugging Is One of the Most Important Skills in IT",
+    "intro": "Debugging is not a weakness — it is a core skill every developer must master.",
+    "content": [
+      "Errors help you understand how code actually works.",
+      "Debugging improves logical thinking and patience.",
+      "Reading error messages carefully saves time.",
+      "Breaking problems into smaller parts makes debugging easier.",
+      "Learning to debug reduces dependency on others.",
+      "Good debuggers become better problem solvers.",
+      "Debugging builds confidence through persistence.",
+      "Every professional developer debugs daily."
+    ]
+  },
+  {
+    "id": 9,
+    "title": "How to Choose the Right Programming Language as a Beginner",
+    "intro": "Choosing the right first language can make learning smoother and less stressful.",
+    "content": [
+      "Choose languages known for beginner-friendliness like Python or JavaScript.",
+      "Focus on learning concepts, not language popularity.",
+      "Avoid switching languages too early.",
+      "Consider your career goal before choosing.",
+      "Stick with one language until fundamentals are strong.",
+      "Understand that concepts transfer between languages.",
+      "Do not chase trends blindly.",
+      "Clarity matters more than speed."
+    ]
+  },
+  {
+    "id": 10,
+    "title": "What Employers Actually Look for in Entry-Level IT Candidates",
+    "intro": "Employers value mindset and skills more than perfect resumes.",
+    "content": [
+      "Problem-solving ability matters more than certificates.",
+      "Basic communication skills are essential.",
+      "Projects show initiative and real understanding.",
+      "Consistency proves reliability.",
+      "Willingness to learn is highly valued.",
+      "Strong fundamentals stand out.",
+      "Good attitude outweighs minor technical gaps.",
+      "Practical experience beats theory alone."
+    ]
+  }
+]
