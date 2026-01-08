@@ -1,24 +1,40 @@
+/* =========================================================
+   NAVBAR – GLASS DARK PURPLE (FINAL)
+========================================================= */
+
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   padding: 14px 36px;
 
-  /* 🔥 more contrast vs page background */
+  /* Dark purple glass */
   background: linear-gradient(
     180deg,
-    #cfe7ff 0%,
-    #b9dcff 100%
+    rgba(88, 82, 150, 0.55),
+    rgba(64, 58, 120, 0.55)
   );
 
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 8px 24px rgba(20, 20, 60, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  transition: background 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* ===============================
+/* =========================================================
    LEFT
-================================ */
+========================================================= */
 
 .nav-left {
   display: flex;
@@ -26,30 +42,32 @@
 }
 
 .nav-logo {
-  height: 68px; /* 🔥 bigger logo */
+  height: 64px;
   width: auto;
   object-fit: contain;
 }
 
-/* ===============================
+/* =========================================================
    CENTER LINKS
-================================ */
+========================================================= */
 
 .nav-links {
   display: flex;
-  gap: 26px;
+  gap: 28px;
 }
 
 .nav-links a {
   text-decoration: none;
   font-weight: 600;
   font-size: 14.5px;
-  color: #334155;
+
+  color: rgba(255, 255, 255, 0.9);
 
   position: relative;
+  transition: color 0.25s ease;
 }
 
-/* subtle underline on hover */
+/* underline */
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -57,7 +75,7 @@
   left: 0;
   width: 0%;
   height: 2px;
-  background: #2563eb;
+  background: #ffd166;
   transition: width 0.25s ease;
 }
 
@@ -66,18 +84,18 @@
 }
 
 .nav-links a:hover {
-  color: #1e3a8a;
+  color: #ffffff;
 }
 
-/* ===============================
+/* =========================================================
    LOGIN BUTTON
-================================ */
+========================================================= */
 
 .login-btn {
-  background: rgba(255, 255, 255, 0.75);
-  color: #1e3a8a;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
 
-  border: 1px solid rgba(30, 58, 138, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   padding: 7px 18px;
   border-radius: 999px;
 
@@ -85,11 +103,12 @@
   font-weight: 700;
   cursor: pointer;
 
+  backdrop-filter: blur(6px);
   transition: all 0.25s ease;
 }
 
 .login-btn:hover {
-  background: #1e3a8a;
-  color: #ffffff;
-  border-color: #1e3a8a;
+  background: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.25);
 }
+S

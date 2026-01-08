@@ -162,7 +162,7 @@
   border-left: calc(6px + var(--s)) solid transparent;
   border-right: calc(6px + var(--s)) solid transparent;
   border-bottom: calc(10px + var(--s) * 1.6)
-    solid rgba(250, 204, 21, 0.65);
+    solid rgba(255, 255, 255, 0.65);
 
   opacity: 0;
   will-change: transform, opacity;
