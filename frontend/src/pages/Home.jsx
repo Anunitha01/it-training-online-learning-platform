@@ -182,7 +182,6 @@ export default function Home() {
 
             <div className="bp-faq-actions">
               <a href="/faq" className="bp-faq-link">Visit FAQs →</a>
-              <a href="/contact" className="bp-faq-link secondary">Contact Us →</a>
             </div>
           </div>
         </div>
