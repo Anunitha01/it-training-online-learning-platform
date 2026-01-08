@@ -1,4 +1,4 @@
-import "../style/FAQ.css";
+import "../Style/FAQ.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -117,3 +117,4 @@ export default function FAQ() {
     </section>
   );
 }
+
