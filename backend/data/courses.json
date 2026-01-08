@@ -2,120 +2,196 @@
   {
     "id": 1,
     "title": "PixelCraft: Web Design & GUI Mastery",
+    "category": "Beginner",
     "level": "Beginner to Intermediate",
-    "price": "RM 200",
     "duration": "4–6 weeks",
     "features": [
-      "Responsive websites (HTML/CSS/JS)",
+      "Responsive websites (HTML, CSS, JavaScript)",
       "UI design basics (layouts, forms, components)",
-      "React fundamentals + mini project",
-      "Certificate + portfolio guidance"
+      "React fundamentals with mini project",
+      "Certificate and portfolio guidance"
     ]
   },
   {
     "id": 2,
     "title": "AppForge: Mobile Development Essentials",
+    "category": "Intermediate",
     "level": "Intermediate",
-    "price": "RM 300",
     "duration": "6–8 weeks",
     "features": [
-      "Build Android/iOS style apps",
-      "UI screens + navigation",
+      "Build Android & iOS-style apps",
+      "UI screens and navigation",
       "Connect basic APIs",
-      "Final app project + certificate"
+      "Final app project with certificate"
     ]
   },
   {
     "id": 3,
     "title": "DataMinds: Analytics & Insights Lab",
+    "category": "Beginner",
     "level": "Beginner to Intermediate",
-    "price": "RM 350",
     "duration": "6–8 weeks",
     "features": [
-      "Data cleaning + basic analysis",
-      "Charts + dashboards",
-      "Intro to Python tools",
-      "Mini project using real dataset"
+      "Data cleaning and basic analysis",
+      "Charts and dashboards",
+      "Introduction to Python tools",
+      "Mini project using real datasets"
     ]
   },
   {
     "id": 4,
     "title": "CyberSentinel: Network & Security Academy",
+    "category": "Intermediate",
     "level": "Intermediate",
-    "price": "RM 150",
     "duration": "6–8 weeks",
     "features": [
       "Networking fundamentals (IP, DNS, routing)",
-      "Cybersecurity concepts + threat types",
-      "Basic security tools + safe practices",
-      "Hands-on labs + certificate"
+      "Cybersecurity concepts and threat types",
+      "Basic security tools and safe practices",
+      "Hands-on labs with certificate"
     ]
   },
   {
     "id": 5,
     "title": "CloudOps: DevOps & Cloud Mastery",
+    "category": "Advanced",
     "level": "Intermediate to Advanced",
-    "price": "RM 170",
     "duration": "6–8 weeks",
     "features": [
-      "Cloud fundamentals (deployment concepts)",
-      "CI/CD overview + automation basics",
-      "Docker intro + simple pipelines",
-      "Final deployment project + certificate"
+      "Cloud deployment fundamentals",
+      "CI/CD overview and automation basics",
+      "Docker introduction and pipelines",
+      "Final deployment project with certificate"
     ]
   },
   {
     "id": 6,
     "title": "AIMinds: AI & ML Fundamentals",
+    "category": "Intermediate",
     "level": "Intermediate",
-    "price": "RM 280",
     "duration": "6–8 weeks",
     "features": [
-      "Intro to AI + ML workflow",
-      "Basic models (classification/regression concepts)",
-      "Simple training + evaluation",
-      "Mini AI project + certificate"
+      "AI and machine learning workflow",
+      "Classification and regression concepts",
+      "Basic model training and evaluation",
+      "Mini AI project with certificate"
     ]
   },
   {
     "id": 7,
-    "title": "CareerLift: Skills & Growth Program",
-    "level": "All learners",
-    "price": "RM 190",
+    "title": "CareerLift: Professional & Career Development",
+    "category": "Beginner",
+    "level": "All Learners",
     "duration": "2–4 weeks",
     "features": [
-      "Resume + LinkedIn improvement",
-      "Interview Q&A practice",
-      "Communication + teamwork skills",
-      "Career roadmap + guidance"
+      "Resume and LinkedIn improvement",
+      "Interview questions and mock practice",
+      "Communication and teamwork skills",
+      "Career roadmap and guidance"
     ]
   },
   {
     "id": 8,
-    "title": "CodeStart: Beginner Programming Bootcamp",
+    "title": "CodeStart: Programming Fundamentals",
+    "category": "Beginner",
     "level": "Complete Beginners",
-    "price": "RM 100",
     "duration": "4–6 weeks",
     "features": [
-      "Logic, variables, loops, functions",
-      "Problem-solving practice (easy → medium)",
-      "Small coding exercises weekly",
-      "Final beginner project + certificate"
+      "Logic, variables, loops, and functions",
+      "Problem-solving from easy to medium",
+      "Weekly coding exercises",
+      "Beginner project with certificate"
     ]
   },
   {
     "id": 9,
-    "title": "TestPro: QA & Software Testing Lab",
+    "title": "TestPro: Software Testing & QA Lab",
+    "category": "Intermediate",
     "level": "Beginner to Intermediate",
-    "price": "RM 210",
     "duration": "4–6 weeks",
     "features": [
-      "Manual testing + test case writing",
+      "Manual testing and test case writing",
       "Bug reporting (Jira-style)",
-      "Intro to automation testing concepts",
-      "Testing mini project + certificate"
+      "Automation testing concepts",
+      "Testing mini project with certificate"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "UI/UX Design Essentials",
+    "category": "Beginner",
+    "level": "Beginner",
+    "duration": "4–6 weeks",
+    "features": [
+      "UI design principles (color, spacing, typography)",
+      "UX basics (user flows, wireframes)",
+      "Hands-on Figma practice",
+      "Design a full app or web UI with certificate"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "GameForge: Game Development Basics",
+    "category": "Intermediate",
+    "level": "Beginner to Intermediate",
+    "duration": "6–8 weeks",
+    "features": [
+      "Game logic and mechanics fundamentals",
+      "2D game design concepts",
+      "Animations and controls",
+      "Playable mini game project with certificate"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "DataVault: Database Management & SQL",
+    "category": "Beginner",
+    "level": "Beginner to Intermediate",
+    "duration": "4–6 weeks",
+    "features": [
+      "Relational database concepts",
+      "SQL queries (SELECT, INSERT, UPDATE, JOIN)",
+      "Database design fundamentals",
+      "Mini database project with certificate"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "ServerSide: Backend Development Fundamentals",
+    "category": "Intermediate",
+    "level": "Intermediate",
+    "duration": "6–8 weeks",
+    "features": [
+      "Backend fundamentals (server, API, database)",
+      "REST API concepts",
+      "Authentication and data handling",
+      "Backend mini project with certificate"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "IoT Core: Internet of Things Fundamentals",
+    "category": "Intermediate",
+    "level": "Beginner to Intermediate",
+    "duration": "6–8 weeks",
+    "features": [
+      "IoT concepts and real-world use cases",
+      "Sensors and device communication",
+      "Data collection and visualization",
+      "IoT concept mini project with certificate"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Ethical Hacking Essentials",
+    "category": "Advanced",
+    "level": "Intermediate",
+    "duration": "6–8 weeks",
+    "features": [
+      "Ethical hacking fundamentals",
+      "Common vulnerabilities and attack types",
+      "Web security basics",
+      "Safe hands-on labs with certificate"
     ]
   }
 ]
-
-
