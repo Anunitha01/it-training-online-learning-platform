@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import logo from "../assets/logo.png";
-import { Link as ScrollLink } from "react-scroll"; // ✅ smooth scroll
+import { Link as ScrollLink } from "react-scroll";
 
 export default function Navbar() {
   return (

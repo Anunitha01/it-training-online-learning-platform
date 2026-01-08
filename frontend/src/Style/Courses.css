@@ -1,14 +1,8 @@
-/* ============================
-   COURSE PAGE BACKGROUND
-============================ */
 body {
   background: url("../assets/background_course.png") center top / cover no-repeat;
   background-attachment: fixed;
 }
 
-/* ============================
-   PAGE WRAPPER
-============================ */
 .courses-container {
   width: min(1300px, 92%);
   margin: 0 auto;
@@ -19,7 +13,6 @@ body {
   text-align: center;
 }
 
-/* Soft glow behind page */
 .courses-container::before {
   content: "";
   position: absolute;
@@ -32,9 +25,6 @@ body {
   z-index: -1;
 }
 
-/* ============================
-   HEADING
-============================ */
 .courses-heading {
   font-size: 4.5rem;
   font-weight: 900;
@@ -43,9 +33,6 @@ body {
   margin-bottom: 60px;
 }
 
-/* ============================
-   SEARCH + FILTERS (FLOATING GLASS)
-============================ */
 .courses-controls {
   display: flex;
   gap: 26px;
@@ -79,9 +66,6 @@ body {
   box-shadow: 0 0 0 4px rgba(134, 33, 167, 0.2);
 }
 
-/* ============================
-   COURSE GRID
-============================ */
 .courses-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -89,9 +73,6 @@ body {
   margin-top: 30px;
 }
 
-/* ============================
-   COURSE CARD – UPDATED DESIGN
-============================ */
 .course-card {
   background: #ffffff;
   border-radius: 10px;
@@ -105,7 +86,6 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* soft inner glow */
 .course-card::before {
   content: "";
   position: absolute;
@@ -119,9 +99,7 @@ body {
   box-shadow: 0 12px 36px rgba(43, 55, 100, 0.28);
 }
 
-/* ============================
-   COURSE TITLE & DESCRIPTION
-============================ */
+
 .course-card h2 {
   font-size: 1.9rem;
   font-weight: 700;
@@ -137,10 +115,6 @@ body {
   line-height: 1.5;
 }
 
-
-/* ============================
-   ENROLL BUTTON
-============================ */
 .course-enroll-btn {
   background: #8f2bd2;
   color: white;
@@ -161,9 +135,6 @@ body {
   box-shadow: 0 10px 30px rgba(108, 99, 255, 0.3);
 }
 
-/* ============================
-   CHECKLIST FOR COURSE FEATURES
-============================ */
 .course-features ul {
   list-style: none;
   padding-left: 0;
@@ -185,9 +156,6 @@ body {
   font-weight: bold;
 }
 
-/* ============================
-   BADGES (Free vs Paid)
-============================ */
 .free-badge,
 .paid-badge {
   display: inline-block;
@@ -208,9 +176,6 @@ body {
   color: #ffffff;
 }
 
-/* ============================
-   ACTION BUTTONS
-============================ */
 .features-btn,
 .free-trial-btn,
 .enroll-btn {
@@ -254,9 +219,6 @@ body {
   box-shadow: 0 12px 30px rgba(99, 102, 241, 0.45);
 }
 
-/* ============================
-   MODAL – MATCH HOME GLASS
-=========================== */
 .modal {
   position: fixed;
   inset: 0;
@@ -305,9 +267,6 @@ body {
   font-weight: 900;
 }
 
-/* ============================
-   EMPTY STATE
-=========================== */
 .no-results {
   text-align: center;
   font-size: 1.1rem;
@@ -315,9 +274,6 @@ body {
   margin-top: 50px;
 }
 
-/* ============================
-   RESPONSIVE
-=========================== */
 @media (max-width: 768px) {
   .courses-heading {
     font-size: 3rem;
@@ -336,9 +292,6 @@ body {
   }
 }
 
-/* ===========================
-   ENROLLMENT POPUP
-=========================== */
 .popup-overlay {
   position: fixed;
   inset: 0;
@@ -402,9 +355,6 @@ body {
   }
 }
 
-/* ===========================
-   BACK BUTTON
-=========================== */
 .back-btn {
   position: absolute;
   top: 28px;
