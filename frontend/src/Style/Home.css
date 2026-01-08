@@ -696,3 +696,358 @@
     font-size: 0.95rem;
   }
 }
+
+/* =========================================================
+   add MOBILE VIEW (<= 600px) — keep same design, just scale down
+========================================================= */
+@media (max-width: 600px) {
+
+  /* ---- container tighter ---- */
+  .bp-container {
+    width: min(1100px, 92%);
+  }
+
+  /* ---- HERO ---- */
+  .bp-hero {
+    padding: 52px 0 18px;
+  }
+
+  /* reduce glow size so it doesn't look too zoomed */
+  .bp-hero::before {
+    width: 900px;
+    height: 700px;
+    top: -320px;
+    left: -520px;
+    opacity: 0.9;
+  }
+
+  .bp-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    text-align: center;
+  }
+
+  .bp-hero-left {
+    text-align: center;
+  }
+
+  .bp-kicker {
+    font-size: 0.82rem;
+    letter-spacing: 0.35px;
+    margin-bottom: 8px;
+  }
+
+  /* IMPORTANT: allow wrapping on mobile */
+  .bp-title-line {
+    white-space: normal;
+  }
+
+  .bp-title {
+    font-size: clamp(2.05rem, 8.4vw, 2.55rem);
+    line-height: 1.12;
+    margin: 8px 0 10px;
+  }
+
+  .bp-sub {
+    max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin: 0 auto 14px;
+  }
+
+  /* mini cards stack neatly */
+  .bp-mini-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .bp-mini {
+    border-radius: 16px;
+    padding: 12px 12px;
+    min-height: auto;
+  }
+
+  .bp-mini strong {
+    font-size: 0.92rem;
+  }
+
+  .bp-mini span {
+    font-size: 0.86rem;
+  }
+
+  /* laptop image smaller and centered */
+  .bp-laptop {
+    max-width: 360px;
+    margin: 6px auto 0;
+  }
+
+  .bp-laptop-img {
+    max-width: 360px;
+  }
+
+  /* screen fit tuned for small */
+  .bp-laptop-screen {
+    top: 18.5%;
+    left: 24.3%;
+    width: 51.4%;
+    height: 60%;
+    border-radius: 10px;
+  }
+
+  /* ---- SECTIONS ---- */
+  .bp-wave {
+    padding: 52px 0;
+  }
+
+  .bp-section-head {
+    margin-bottom: 22px;
+  }
+
+  .bp-section-title {
+    font-size: clamp(1.55rem, 6.8vw, 2rem);
+  }
+
+  .bp-section-sub {
+    font-size: 0.96rem;
+  }
+
+  /* ---- LEARNING PATHS ---- */
+  .bp-cards-4 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0;
+  }
+
+  .bp-path-card {
+    border-radius: 18px;
+    padding: 16px 14px 16px;
+  }
+
+  .bp-ipad {
+    max-width: 180px;
+    margin-bottom: 10px;
+  }
+
+  .bp-path-card h3 {
+    font-size: 1rem;
+  }
+
+  .bp-path-card p {
+    font-size: 0.92rem;
+  }
+
+  /* ---- ABOUT ---- */
+  .bp-about-top {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    text-align: center;
+  }
+
+  /* reduce paint spread so it doesn't overflow */
+  .bp-about-bg::before {
+    inset: -55px;
+    opacity: 0.85;
+  }
+
+  .bp-about-bg p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .bp-about-image img {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .bp-about-divider-horizontal {
+    margin: 26px 0;
+  }
+
+  .bp-about-bottom {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .bp-about-divider-vertical {
+    display: none;
+  }
+
+  .bp-about-box {
+    border-radius: 18px;
+    padding: 18px 16px;
+  }
+
+  .bp-about-box h3 {
+    font-size: 1.2rem;
+  }
+
+  .bp-about-box p {
+    font-size: 0.95rem;
+  }
+
+  /* ---- TEAM CAROUSEL ---- */
+  .bp-team-stage {
+    height: 520px;
+  }
+
+  .bp-team-card {
+    width: min(92%, 360px);
+    padding: 22px 18px;
+    border-radius: 22px;
+    margin-top: 22px;
+  }
+
+  .bp-avatar-large {
+    width: 180px;
+    height: 180px;
+    border-radius: 26px;
+    margin-bottom: 14px;
+  }
+
+  .bp-team-name {
+    font-size: 1.35rem;
+  }
+
+  .bp-team-role {
+    font-size: 0.98rem;
+    margin: 12px 0 10px;
+  }
+
+  .bp-team-bio {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 12px;
+  }
+
+  .bp-team-tagline {
+    font-size: 0.9rem;
+  }
+
+  /* keep only active card on mobile */
+  .bp-team-card.next,
+  .bp-team-card.prev {
+    display: none;
+  }
+
+  .bp-team-dots {
+    margin-top: 22px;
+  }
+
+  /* ---- FAQ ---- */
+  .bp-faq {
+    padding-bottom: 60px;
+  }
+
+  .bp-faq-box {
+    padding: 22px 16px;
+    border-radius: 18px;
+  }
+
+  .bp-faq-text {
+    font-size: 0.98rem;
+    margin-bottom: 16px;
+  }
+
+  .bp-faq-actions {
+    gap: 10px;
+  }
+
+  .bp-faq-link {
+    font-size: 0.92rem;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bp-title-line {
+    white-space: normal;
+  }
+}
+
+/* =========================
+   NAVBAR - PHONE ONLY
+========================= */
+@media (max-width: 600px) {
+  header.navbar,
+  .navbar {
+    padding: 8px 10px !important;
+    min-height: 52px !important;
+  }
+
+  /* Logo smaller */
+  .navbar img {
+    height: 34px !important;
+    width: auto !important;
+  }
+
+  /* Make all nav text smaller */
+  .navbar a,
+  .navbar li,
+  .navbar button {
+    font-size: 12px !important;
+  }
+
+  /* Reduce spacing between links */
+  .navbar ul,
+  .navbar .nav-links {
+    gap: 10px !important;
+  }
+
+  /* Login button smaller */
+  .navbar .login-btn,
+  .navbar .btn-login,
+  .navbar .login {
+    padding: 6px 10px !important;
+    border-radius: 999px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* Make the page feel full width */
+  .bp-ui {
+    background-position: center top;
+  }
+
+  /* Reduce the huge glow so it doesn't look weird on mobile */
+  .bp-hero::before {
+    opacity: 0.55;
+    filter: blur(0px);
+  }
+
+  /* Make hero content not feel "boxed" */
+  .bp-container {
+    width: 94%;
+  }
+
+  /* Mini cards: nicer spacing */
+  .bp-mini {
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* Make the page feel full width */
+  .bp-ui {
+    background-position: center top;
+  }
+
+  /* Reduce the huge glow so it doesn't look weird on mobile */
+  .bp-hero::before {
+    opacity: 0.55;
+    filter: blur(0px);
+  }
+
+  /* Make hero content not feel "boxed" */
+  .bp-container {
+    width: 94%;
+  }
+
+  /* Mini cards: nicer spacing */
+  .bp-mini {
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+  }
+}

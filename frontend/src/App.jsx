@@ -10,8 +10,12 @@ import Footer from "./components/Footer";
 // Wrapper to conditionally show Navbar
 function Layout({ children }) {
   const location = useLocation();
-  // Hide Navbar for /faq route
-  const showNavbar = !location.pathname.toLowerCase().startsWith("/faq");
+
+  // Hide Navbar for /faq and /courses routes
+  const hideNavbarPaths = ["/faq", "/courses"];
+  const showNavbar = !hideNavbarPaths.some(path =>
+    location.pathname.toLowerCase().startsWith(path)
+  );
 
   return (
     <>

@@ -11,7 +11,7 @@ import webCourse from "../assets/web_development_course.png";
 import mobileCourse from "../assets/mobile_app_development_course.png";
 import dataCourse from "../assets/data_science_and_analytics_course.png";
 import cyberCourse from "../assets/cybersecurity_and_networking_course.png";
-import team1 from "../assets/robot_1.png";
+import team1 from "../assets/anunitha.jpeg";
 import team2 from "../assets/venmadhi.jpeg";
 import team3 from "../assets/menakha.jpeg";
 
