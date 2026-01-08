@@ -6,6 +6,7 @@ function Courses() {
   const [courses, setCourses] = useState([]);
   const [search, setSearch] = useState("");
   const [levelFilter, setLevelFilter] = useState("");
+  const [durationFilter, setDurationFilter] = useState("");
   const [selectedCourse, setSelectedCourse] = useState(null);
 
   useEffect(() => {
@@ -15,22 +16,46 @@ function Courses() {
       .catch((err) => console.error(err));
   }, []);
 
-  const filteredCourses = courses.filter(
-    (course) =>
-      (levelFilter === "" || course.level.includes(levelFilter)) &&
-      course.title.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredCourses = courses.filter((course) => {
+    const matchesLevel =
+      levelFilter === "" || course.level.toLowerCase().includes(levelFilter.toLowerCase());
 
-  const handleEnroll = (courseTitle) => {
+    const matchesDuration =
+      durationFilter === "" || course.duration === durationFilter;
+
+    const matchesSearch =
+      course.title.toLowerCase().includes(search.toLowerCase());
+
+    return matchesLevel && matchesDuration && matchesSearch;
+  });
+
+  const isFreeTrial = (level) => {
+    return (
+      level.toLowerCase().includes("beginner") ||
+      level.toLowerCase().includes("complete")
+    );
+  };
+
+  const handleEnroll = (course) => {
     const token = localStorage.getItem("token");
-    if (!token) return alert("Please login to enroll");
-    alert(`You have enrolled in ${courseTitle}!`);
+
+    if (!token) {
+      alert("Please login to continue");
+      return;
+    }
+
+    if (isFreeTrial(course.level)) {
+      alert(`🎉 You have started a FREE TRIAL for ${course.title}`);
+    } else {
+      alert(`💳 Payment required to enroll in ${course.title}`);
+    }
   };
 
   return (
     <div className="courses-container">
-      <h1 className="courses-heading">Courses</h1>
+      <h1 className="courses-heading">Kickstart Your Learning Journey</h1>
 
+      {/* CONTROLS */}
       <div className="courses-controls">
         <input
           type="text"
@@ -39,48 +64,79 @@ function Courses() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <select onChange={(e) => setLevelFilter(e.target.value)} value={levelFilter}>
+        <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)}>
           <option value="">All Levels</option>
           <option value="Beginner">Beginner</option>
           <option value="Intermediate">Intermediate</option>
           <option value="Advanced">Advanced</option>
         </select>
+
+        <select
+          value={durationFilter}
+          onChange={(e) => setDurationFilter(e.target.value)}
+        >
+          <option value="">All Durations</option>
+          <option value="2–4 weeks">2–4 weeks</option>
+          <option value="4–6 weeks">4–6 weeks</option>
+          <option value="6–8 weeks">6–8 weeks</option>
+        </select>
       </div>
 
+      {/* COURSES */}
       <div className="courses-list">
         {filteredCourses.map((course) => (
           <div key={course.id} className="course-card">
             <div className="course-content">
               <h2>{course.title}</h2>
-              <p><span className="label">Level:</span> {course.level}</p>
-              <p><span className="label">Price:</span> {course.price}</p>
-              <p><span className="label">Duration:</span> {course.duration}</p>
+              <p><strong>Level:</strong> {course.level}</p>
+              <p><strong>Duration:</strong> {course.duration}</p>
+              <p>
+                <strong>Access:</strong>{" "}
+                {isFreeTrial(course.level) ? (
+                  <span className="free-badge">Free Trial</span>
+                ) : (
+                  <span className="paid-badge">{course.price}</span>
+                )}
+              </p>
             </div>
 
             <div className="course-actions">
-              <button onClick={() => setSelectedCourse(course)} className="features-btn">
+              <button
+                className="features-btn"
+                onClick={() => setSelectedCourse(course)}
+              >
                 View Features
               </button>
-              <button onClick={() => handleEnroll(course.title)} className="enroll-btn">
-                Enroll
+
+              <button
+                className={isFreeTrial(course.level) ? "free-trial-btn" : "enroll-btn"}
+                onClick={() => handleEnroll(course)}
+              >
+                {isFreeTrial(course.level) ? "Start Free Trial" : "Enroll Now"}
               </button>
             </div>
           </div>
         ))}
 
-        {filteredCourses.length === 0 && <p>No courses found.</p>}
+        {filteredCourses.length === 0 && (
+          <p className="no-results">No courses found.</p>
+        )}
       </div>
 
+      {/* MODAL */}
       {selectedCourse && (
         <div className="modal">
           <div className="modal-content">
-            <h2>{selectedCourse.title} – What You Get</h2>
+            <h2>{selectedCourse.title}</h2>
             <ul>
               {selectedCourse.features.map((feature, index) => (
                 <li key={index}>{feature}</li>
               ))}
             </ul>
-            <button onClick={() => setSelectedCourse(null)} className="close-btn">
+            <button
+              className="close-btn"
+              onClick={() => setSelectedCourse(null)}
+            >
               Close
             </button>
           </div>

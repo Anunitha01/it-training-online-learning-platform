@@ -1,29 +1,17 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../Style/Auth.css"; // make sure path matches your CSS file
+import "../Style/Auth.css";
 
 function ResetPassword() {
-  const { token } = useParams(); 
+  const { token } = useParams();
+  const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
 
-  // ✅ Password validation regex
-  const passwordRegex =
-    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-  const handleResetPassword = async (e) => {
+  const handleReset = async (e) => {
     e.preventDefault();
-
-    // 🔒 Validate password
-    if (!passwordRegex.test(password)) {
-      setMessage(
-        "Password must be at least 8 characters, include letters, numbers, and a special symbol."
-      );
-      return;
-    }
 
     if (password !== confirmPassword) {
       setMessage("Passwords do not match.");
@@ -35,49 +23,51 @@ function ResetPassword() {
         `http://localhost:5000/api/auth/reset-password/${token}`,
         { password }
       );
-
-      setMessage(res.data.message || "Success! Your new password is ready to use.");
-
-      // Redirect to login after 2 seconds
-      setTimeout(() => {
-        navigate("/login");
-      }, 2000);
-    } catch (err) {
-      if (err.response && err.response.data.message) {
-        setMessage(err.response.data.message);
-      } else {
-        setMessage("🔄 Password reset failed — let’s give it another shot.");
-      }
+      setMessage(res.data.message || "Password reset successful!");
+      setTimeout(() => navigate("/login"), 1500);
+    } catch {
+      setMessage("Reset failed. Try again.");
     }
   };
 
   return (
-    <div className="reset-container">
-      <h2>Reset Password</h2>
+    <div className="auth-page">
+      <main className="auth-main">
 
-      <form className="reset-form" onSubmit={handleResetPassword}>
-        <label>New Password:</label>
-        <input
-          type="password"
-          placeholder="Enter new password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div className="auth-hero">
+          <h1>Reset Password</h1>
+          <p>Choose a new secure password.</p>
+        </div>
 
-        <label>Confirm Password:</label>
-        <input
-          type="password"
-          placeholder="Confirm new password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
+        <div className="auth-visuals">
+          <section className="auth-card">
+            <h2>New Password</h2>
 
-        <button type="submit">Reset Password</button>
-      </form>
+            <form className="auth-form" onSubmit={handleReset}>
+              <label>New Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
 
-      {message && <p className="reset-message">{message}</p>}
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+
+              <button type="submit">Reset Password</button>
+            </form>
+
+            {message && <p className="auth-message">{message}</p>}
+          </section>
+        </div>
+
+      </main>
     </div>
   );
 }

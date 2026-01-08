@@ -3,86 +3,100 @@
 ================================ */
 
 .faq {
-  background-image: url("../assets/background_about.png");
+  position: relative;
+  overflow: hidden;
+
+  background-image: url("../assets/background_FAQ.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 100px 60px 120px;
+
+  padding: 110px 60px 140px;
   color: #0b1f3a;
 }
 
 /* ===============================
-   HERO
+   HERO + CONTENT LAYER
+================================ */
+
+.faq-hero,
+.faq-glass {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===============================
+   FAQ HERO
 ================================ */
 
 .faq-hero {
   max-width: 900px;
-  margin: 0 auto 70px; /* slightly more breathing room */
+  margin: 0 auto 80px;
   text-align: center;
 }
 
 .faq-title {
   font-size: clamp(48px, 6vw, 72px);
   font-weight: 800;
-  margin-bottom: 20px;
-  letter-spacing: -0.5px; /* ✨ subtle premium feel */
+  margin-bottom: 18px;
 }
 
 .faq-subtitle {
-  font-size: clamp(18px, 1.6vw, 22px);
+  font-size: 18px;
   color: #475569;
-  line-height: 1.75;
+  line-height: 1.7;
   max-width: 720px;
   margin: 0 auto;
 }
 
 /* ===============================
-   GLASS CONTAINER
+   FAQ GLASS
 ================================ */
 
 .faq-glass {
   max-width: 900px;
   margin: 0 auto;
+  padding: 30px;
 
-  background: rgba(255, 255, 255, 0.28); /* ✨ slightly brighter */
-  backdrop-filter: blur(18px);
-
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px);
   border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow:
-    0 30px 90px rgba(15, 23, 42, 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35); /* ✨ inner glow */
+  border: 1px solid rgba(255, 255, 255, 0.35);
 
-  padding: 26px;
+  box-shadow: 0 30px 90px rgba(15, 23, 42, 0.14);
 }
 
 /* ===============================
-   FAQ ITEMS
+   FAQ ITEM
 ================================ */
 
 .faq-item {
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-  transition: background 0.25s ease; /* ✨ subtle hover depth */
+  position: relative;
+  margin-bottom: 14px;
+  border-radius: 18px;
+  overflow: hidden;
 }
 
-.faq-item:last-child {
-  border-bottom: none;
-}
-
-.faq-item.active {
-  background: rgba(255, 255, 255, 0.35); /* ✨ active highlight */
+.faq-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(6px);
   border-radius: 18px;
 }
 
-/* ===============================
-   QUESTION BUTTON
-================================ */
+.faq-item.active::before {
+  background: rgba(255, 255, 255, 0.92);
+}
 
 .faq-question {
+  position: relative;
+  z-index: 1;
   width: 100%;
   background: none;
   border: none;
-  padding: 22px 14px;
+  padding: 22px 18px;
 
   font-size: 18px;
   font-weight: 700;
@@ -91,50 +105,126 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   cursor: pointer;
-  transition: color 0.25s ease;
 }
 
 .faq-question:hover {
-  color: #2563eb;
+  color: #989300;
 }
-
-/* ===============================
-   ICON
-================================ */
 
 .faq-icon {
   font-size: 26px;
   font-weight: 700;
   color: #2563eb;
-  transition: transform 0.3s ease; /* ✨ animation */
+  transition: transform 0.3s ease;
 }
 
 .faq-item.active .faq-icon {
-  transform: rotate(180deg); /* ✨ subtle motion */
+  transform: rotate(180deg);
 }
 
-/* ===============================
-   ANSWER (ACCORDION)
-================================ */
-
 .faq-answer {
+  position: relative;
+  z-index: 1;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 240px; /* slightly more room for longer answers */
+  max-height: 260px;
 }
 
 .faq-answer p {
-  padding: 0 14px 22px;
+  padding: 0 18px 22px;
   font-size: 16.5px;
-  line-height: 1.75;
+  line-height: 1.7;
   color: #6b7280;
 }
+
+/* ===============================
+   TRIANGLE LAYER
+================================ */
+
+.triangle-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Triangle shape + random size */
+.triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  border-left: calc(6px + var(--s)) solid transparent;
+  border-right: calc(6px + var(--s)) solid transparent;
+  border-bottom: calc(10px + var(--s) * 1.6)
+    solid rgba(255, 255, 255, 0.65);
+
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ===============================
+   ANIMATIONS
+================================ */
+
+@keyframes float-right {
+  from {
+    transform: translateX(-150px)
+      translateY(var(--scrollY))
+      rotate(0deg);
+  }
+  to {
+    transform: translateX(110vw)
+      translateY(calc(var(--scrollY) * -1))
+      rotate(360deg);
+  }
+}
+
+@keyframes float-left {
+  from {
+    transform: translateX(110vw)
+      translateY(var(--scrollY))
+      rotate(0deg);
+  }
+  to {
+    transform: translateX(-150px)
+      translateY(calc(var(--scrollY) * -1))
+      rotate(-360deg);
+  }
+}
+
+@keyframes fade {
+  0%, 100% { opacity: 0; }
+  20%, 80% { opacity: 0.75; }
+}
+
+/* ===============================
+   TRIANGLE PRESETS (MIXED DIR)
+================================ */
+
+/* LEFT → RIGHT */
+.triangle.t0  { top: 6%;  --s: 3px; animation: float-right 42s linear infinite, fade 6s ease-in-out infinite; }
+.triangle.t1  { top: 14%; --s: 6px; animation: float-right 55s linear infinite, fade 7s ease-in-out infinite; }
+.triangle.t2  { top: 22%; --s: 9px; animation: float-right 68s linear infinite, fade 8s ease-in-out infinite; }
+.triangle.t3  { top: 30%; --s: 4px; animation: float-right 48s linear infinite, fade 6s ease-in-out infinite; }
+.triangle.t4  { top: 38%; --s: 8px; animation: float-right 72s linear infinite, fade 9s ease-in-out infinite; }
+.triangle.t5  { top: 46%; --s: 5px; animation: float-right 60s linear infinite, fade 7s ease-in-out infinite; }
+.triangle.t6  { top: 54%; --s: 10px;animation: float-right 80s linear infinite, fade 10s ease-in-out infinite; }
+
+/* RIGHT → LEFT */
+.triangle.t7  { top: 10%; --s: 4px; animation: float-left 50s linear infinite, fade 7s ease-in-out infinite; }
+.triangle.t8  { top: 18%; --s: 7px; animation: float-left 66s linear infinite, fade 9s ease-in-out infinite; }
+.triangle.t9  { top: 26%; --s: 3px; animation: float-left 44s linear infinite, fade 6s ease-in-out infinite; }
+.triangle.t10 { top: 34%; --s: 9px; animation: float-left 78s linear infinite, fade 10s ease-in-out infinite; }
+.triangle.t11 { top: 42%; --s: 11px;animation: float-left 86s linear infinite, fade 11s ease-in-out infinite; }
+.triangle.t12 { top: 58%; --s: 6px; animation: float-left 72s linear infinite, fade 8s ease-in-out infinite; }
+.triangle.t13 { top: 66%; --s: 8px; animation: float-left 90s linear infinite, fade 12s ease-in-out infinite; }
+.triangle.t14 { top: 74%; --s: 5px; animation: float-left 82s linear infinite, fade 9s ease-in-out infinite; }
 
 /* ===============================
    RESPONSIVE
@@ -145,7 +235,200 @@
     padding: 80px 24px 100px;
   }
 
+  .triangle {
+    display: none;
+  }
+}
+
+/* ===============================
+   FAQ WRAPPER
+================================ */
+
+.faq-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===============================
+   LAYOUT WRAPPER
+================================ */
+
+.faq-layout {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  z-index: 2;
+}
+
+/* ===============================
+   ICON COLUMN (REFERENCE STYLE)
+================================ */
+
+.faq-icons {
+  position: relative;
+  width: 140px;
+  min-height: 520px;
+}
+
+/* Base icon */
+.faq-icons .icon {
+  position: absolute;
+  width: 64px;
+  filter: drop-shadow(0 10px 22px rgba(15, 23, 42, 0.18));
+  animation: icon-float 6s ease-in-out infinite;
+  transform: translateY(var(--scrollY));
+}
+
+/* ===============================
+   STAGGERED DIAGONAL POSITIONS
+   (MATCHES YOUR REFERENCE)
+================================ */
+
+.i1 { top: 0%;   left: 30px; animation-delay: 0s; }
+.i2 { top: 11%;  left: 72px; animation-delay: 1s; }
+.i3 { top: 23%;  left: 48px; animation-delay: 2s; }
+.i4 { top: 35%;  left: 78px; animation-delay: 1.4s; }
+.i5 { top: 47%;  left: 42px; animation-delay: 2.6s; }
+.i6 { top: 60%;  left: 70px; animation-delay: 1.8s; }
+.i7 { top: 74%;  left: 50px; animation-delay: 2.2s; }
+
+/* ===============================
+   FLOATING MOTION
+================================ */
+
+@keyframes icon-float {
+  0%, 100% {
+    transform: translateY(calc(var(--scrollY))) rotate(0deg);
+  }
+  50% {
+    transform: translateY(calc(var(--scrollY) - 10px)) rotate(2deg);
+  }
+}
+
+/* ===============================
+   LAYOUT FIX
+================================ */
+
+.faq-layout {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  z-index: 2;
+}
+
+.faq-glass {
+  flex: 1;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+  .faq-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .faq-icons {
+    display: none;
+  }
+}
+
+/* ===============================
+   FAQ CENTERING FIX
+================================ */
+
+/* Center the whole layout visually */
+.faq-layout {
+  justify-content: center;
+}
+
+/* Pull the glass slightly left to counter icon column */
+.faq-glass {
+  margin-left: -70px; /* ← balances the 140px icon column */
+}
+
+/* Mobile: reset offset */
+@media (max-width: 900px) {
+  .faq-glass {
+    margin-left: 0;
+  }
+}
+
+/* ======================================================
+   FAQ MOBILE VIEW (FINAL)
+====================================================== */
+
+@media (max-width: 768px) {
+
+  /* Section padding */
+  .faq {
+    padding: 70px 20px 90px;
+  }
+
+  /* Hero text */
+  .faq-title {
+    font-size: 2.4rem;
+    line-height: 1.2;
+  }
+
+  .faq-subtitle {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  /* Layout stack */
+  .faq-layout {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hide icons completely */
+  .faq-icons {
+    display: none;
+  }
+
+  /* Reset centering offset */
+  .faq-glass {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 22px 16px;
+  }
+
+  /* FAQ items spacing */
+  .faq-item {
+    margin-bottom: 12px;
+  }
+
+  /* Question button */
   .faq-question {
-    font-size: 17px;
+    font-size: 16px;
+    padding: 18px 16px;
+  }
+
+  /* Icon (+ / −) */
+  .faq-icon {
+    font-size: 22px;
+  }
+
+  /* Answer text */
+  .faq-answer p {
+    font-size: 15px;
+    line-height: 1.65;
+    padding: 0 16px 18px;
+  }
+
+  /* Remove background animation clutter */
+  .triangle {
+    display: none;
   }
 }
