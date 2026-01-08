@@ -9,7 +9,42 @@ const faqData = [
     answer:
       "Yes, BrightPath is specifically designed with beginners in mind. Many learners start their IT journey feeling confused, overwhelmed, or unsure where to begin. BrightPath addresses this by providing structured learning paths that start from the basics and gradually build confidence."
   },
-  // Additional FAQ items here...
+  {
+    question:
+      "How is BrightPath different from watching tutorials on YouTube or other platforms?",
+    answer:
+      "Unlike random tutorials that often lack structure, BrightPath offers guided learning paths designed to build skills step by step."
+  },
+  {
+    question:
+      "Do I need any prior coding or IT background before enrolling in BrightPath courses?",
+    answer:
+      "No prior coding or IT experience is required for beginner-level courses."
+  },
+  {
+    question:
+      "Can I really learn practical IT skills online without attending physical classes?",
+    answer:
+      "Yes. BrightPath focuses on hands-on exercises and real-world projects."
+  },
+  {
+    question:
+      "How are BrightPath courses designed to help me apply what I learn in real situations?",
+    answer:
+      "Courses are structured around real-world application and industry scenarios."
+  },
+  {
+    question:
+      "Can I study at my own pace, or do I need to follow a fixed schedule?",
+    answer:
+      "BrightPath fully supports self-paced learning."
+  },
+  {
+    question:
+      "What kind of projects will I work on, and will they be useful for my portfolio?",
+    answer:
+      "Projects are practical and portfolio-ready."
+  }
 ];
 
 export default function FAQ() {
@@ -38,6 +73,13 @@ export default function FAQ() {
         </Link>
       </div>
 
+      {/* TRIANGLES */}
+      <div className="triangle-layer">
+        {[...Array(40)].map((_, i) => (
+          <span key={i} className={`triangle t${i % 15}`} />
+        ))}
+      </div>
+
       {/* FAQ HERO */}
       <div className="faq-hero">
         <h1 className="faq-title">Frequently Asked Questions</h1>
@@ -46,7 +88,7 @@ export default function FAQ() {
         </p>
       </div>
 
-      {/* FAQ LAYOUT */}
+      {/* MAIN LAYOUT */}
       <div className="faq-layout">
         <div className="faq-glass">
           {faqData.map((item, index) => (
