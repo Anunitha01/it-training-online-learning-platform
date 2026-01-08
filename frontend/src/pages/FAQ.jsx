@@ -1,5 +1,6 @@
 import "../style/FAQ.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 /* ICONS */
 import bulb from "../assets/bulb_icon_FAQ.png";
@@ -55,10 +56,10 @@ const faqData = [
   }
 ];
 
-export default function Faq() {
+export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  /* Parallax */
+  /* Parallax effect */
   useEffect(() => {
     const onScroll = () => {
       document.documentElement.style.setProperty(
@@ -72,6 +73,14 @@ export default function Faq() {
 
   return (
     <section className="faq">
+      {/* BACK SYMBOL */}
+      <div className="faq-back">
+        <Link to="/" className="faq-back-link">
+          {/* Just a simple left arrow symbol */}
+          <span style={{ fontSize: "2rem", fontWeight: "bold" }}>←</span>
+        </Link>
+      </div>
+
       {/* TRIANGLES */}
       <div className="triangle-layer">
         {[...Array(40)].map((_, i) => (
@@ -118,7 +127,6 @@ export default function Faq() {
                   {activeIndex === index ? "−" : "+"}
                 </span>
               </button>
-
               <div className="faq-answer">
                 <p>{item.answer}</p>
               </div>

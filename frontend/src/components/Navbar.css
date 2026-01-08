@@ -9,9 +9,9 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* center the nav links only */
 
-  padding: 14px 36px;
+  padding: 25px 36px; /* unchanged */
 
   /* Dark purple glass */
   background: linear-gradient(
@@ -33,16 +33,18 @@
 }
 
 /* =========================================================
-   LEFT
+   LEFT – LOGO (STAYS IN ORIGINAL POSITION)
 ========================================================= */
 
 .nav-left {
   display: flex;
   align-items: center;
+  position: absolute; /* keeps logo fixed at left */
+  left: 36px; /* same as navbar padding */
 }
 
 .nav-logo {
-  height: 64px;
+  height: 64px; /* unchanged */
   width: auto;
   object-fit: contain;
 }
@@ -54,6 +56,8 @@
 .nav-links {
   display: flex;
   gap: 28px;
+  justify-content: center; /* center links horizontally */
+  align-items: center;
 }
 
 .nav-links a {
@@ -86,29 +90,3 @@
 .nav-links a:hover {
   color: #ffffff;
 }
-
-/* =========================================================
-   LOGIN BUTTON
-========================================================= */
-
-.login-btn {
-  background: rgba(255, 255, 255, 0.18);
-  color: #ffffff;
-
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  padding: 7px 18px;
-  border-radius: 999px;
-
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-
-  backdrop-filter: blur(6px);
-  transition: all 0.25s ease;
-}
-
-.login-btn:hover {
-  background: rgba(255, 255, 255, 0.32);
-  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.25);
-}
-S
