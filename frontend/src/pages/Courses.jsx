@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
+import axios from "axios"; // Axios for API calls
 import "../Style/Courses.css";
 
 function Courses() {
@@ -9,27 +9,26 @@ function Courses() {
   const [durationFilter, setDurationFilter] = useState("");
   const [showPopup, setShowPopup] = useState(false);
 
+  // Fetch courses data from the backend (API)
   useEffect(() => {
     axios
-      .get("http://localhost:5000/courses", {
-        headers: { "Cache-Control": "no-cache" },
+      .get("http://localhost:5000/api/courses") // Ensure the backend is running on this port
+      .then((response) => {
+        setCourses(response.data);  // Set the courses data in state
       })
-      .then((res) => {
-        setCourses(Array.isArray(res.data) ? res.data : []);
-      })
-      .catch(() => setCourses([]));
+      .catch((error) => {
+        console.error("Error fetching courses data:", error);
+      });
   }, []);
 
+  // Filter courses based on search, category, and duration
   const filteredCourses = courses.filter((course) => {
-    if (!course?.title) return false;
-
     const matchesSearch = course.title
       .toLowerCase()
       .includes(search.toLowerCase());
 
     const matchesCategory =
-      !categoryFilter ||
-      course.category?.toLowerCase() === categoryFilter.toLowerCase();
+      !categoryFilter || course.category?.toLowerCase() === categoryFilter.toLowerCase();
 
     const matchesDuration =
       !durationFilter || course.duration === durationFilter;
@@ -39,12 +38,8 @@ function Courses() {
 
   return (
     <div className="courses-container">
-
       {/* BACK BUTTON */}
-      <button
-        className="back-btn"
-        onClick={() => window.history.back()}
-      >
+      <button className="back-btn" onClick={() => window.history.back()}>
         ← Back
       </button>
 
@@ -59,20 +54,14 @@ function Courses() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <select
-          value={categoryFilter}
-          onChange={(e) => setCategoryFilter(e.target.value)}
-        >
+        <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
           <option value="">All Categories</option>
           <option value="Beginner">Beginner</option>
           <option value="Intermediate">Intermediate</option>
           <option value="Advanced">Advanced</option>
         </select>
 
-        <select
-          value={durationFilter}
-          onChange={(e) => setDurationFilter(e.target.value)}
-        >
+        <select value={durationFilter} onChange={(e) => setDurationFilter(e.target.value)}>
           <option value="">All Durations</option>
           <option value="2–4 weeks">2–4 weeks</option>
           <option value="4–6 weeks">4–6 weeks</option>
@@ -86,15 +75,10 @@ function Courses() {
           <div key={course.id} className="course-card">
             <div className="course-header">
               <h3 className="course-title">{course.title}</h3>
-              <p className="course-subtitle">
-                {course.level} • {course.duration}
-              </p>
+              <p className="course-subtitle">{course.level} • {course.duration}</p>
             </div>
 
-            <button
-              className="course-enroll-btn"
-              onClick={() => setShowPopup(true)}
-            >
+            <button className="course-enroll-btn" onClick={() => setShowPopup(true)}>
               Enroll Now
             </button>
 
@@ -114,20 +98,11 @@ function Courses() {
 
       {/* POPUP */}
       {showPopup && (
-        <div
-          className="popup-overlay"
-          onClick={() => setShowPopup(false)}
-        >
-          <div
-            className="popup-box"
-            onClick={(e) => e.stopPropagation()}
-          >
+        <div className="popup-overlay" onClick={() => setShowPopup(false)}>
+          <div className="popup-box" onClick={(e) => e.stopPropagation()}>
             <h2>🎉 Enrollment Successful!</h2>
             <p>You’ve been successfully enrolled.</p>
-            <button
-              className="popup-btn"
-              onClick={() => setShowPopup(false)}
-            >
+            <button className="popup-btn" onClick={() => setShowPopup(false)}>
               Okay
             </button>
           </div>
