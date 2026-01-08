@@ -1,14 +1,6 @@
-import "../style/FAQ.css";
+import "../Style/FAQ.css";
 import { useState, useEffect } from "react";
-
-/* ICONS */
-import bulb from "../assets/bulb_icon_FAQ.png";
-import paperPlane from "../assets/paper_plane_icon_FAQ.png";
-import setting from "../assets/setting_icon_FAQ.png";
-import magnify from "../assets/magnifying_glass_icon_FAQ.png";
-import target from "../assets/target_icon_FAQ.png";
-import clipboard from "../assets/clipboard_icon_FAQ.png";
-import chat from "../assets/chat_icon_FAQ.png";
+import { Link } from "react-router-dom";
 
 const faqData = [
   {
@@ -55,10 +47,10 @@ const faqData = [
   }
 ];
 
-export default function Faq() {
+export default function FAQ() {
   const [activeIndex, setActiveIndex] = useState(null);
 
-  /* Parallax */
+  /* Parallax effect */
   useEffect(() => {
     const onScroll = () => {
       document.documentElement.style.setProperty(
@@ -72,6 +64,15 @@ export default function Faq() {
 
   return (
     <section className="faq">
+      {/* BACK BUTTON */}
+      <div className="faq-back">
+        <Link to="/" className="faq-back-link">
+          <button className="back-btn">
+            ← Back
+          </button>
+        </Link>
+      </div>
+
       {/* TRIANGLES */}
       <div className="triangle-layer">
         {[...Array(40)].map((_, i) => (
@@ -79,7 +80,7 @@ export default function Faq() {
         ))}
       </div>
 
-      {/* HERO */}
+      {/* FAQ HERO */}
       <div className="faq-hero">
         <h1 className="faq-title">Frequently Asked Questions</h1>
         <p className="faq-subtitle">
@@ -89,18 +90,6 @@ export default function Faq() {
 
       {/* MAIN LAYOUT */}
       <div className="faq-layout">
-        {/* LEFT ICONS */}
-        <div className="faq-icons">
-          <img src={bulb} className="icon i1" alt="" />
-          <img src={paperPlane} className="icon i2" alt="" />
-          <img src={setting} className="icon i3" alt="" />
-          <img src={magnify} className="icon i4" alt="" />
-          <img src={target} className="icon i5" alt="" />
-          <img src={clipboard} className="icon i6" alt="" />
-          <img src={chat} className="icon i7" alt="" />
-        </div>
-
-        {/* FAQ BOX */}
         <div className="faq-glass">
           {faqData.map((item, index) => (
             <div
@@ -118,7 +107,6 @@ export default function Faq() {
                   {activeIndex === index ? "−" : "+"}
                 </span>
               </button>
-
               <div className="faq-answer">
                 <p>{item.answer}</p>
               </div>
@@ -129,3 +117,4 @@ export default function Faq() {
     </section>
   );
 }
+

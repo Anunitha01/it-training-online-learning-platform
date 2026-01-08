@@ -341,94 +341,20 @@
   }
 }
 
-/* ===============================
-   FAQ CENTERING FIX
-================================ */
-
-/* Center the whole layout visually */
-.faq-layout {
-  justify-content: center;
+.faq-back {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
 }
 
-/* Pull the glass slightly left to counter icon column */
-.faq-glass {
-  margin-left: -70px; /* ← balances the 140px icon column */
+.faq-back-link img {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
 }
 
-/* Mobile: reset offset */
-@media (max-width: 900px) {
-  .faq-glass {
-    margin-left: 0;
-  }
-}
-
-/* ======================================================
-   FAQ MOBILE VIEW (FINAL)
-====================================================== */
-
-@media (max-width: 768px) {
-
-  /* Section padding */
-  .faq {
-    padding: 70px 20px 90px;
-  }
-
-  /* Hero text */
-  .faq-title {
-    font-size: 2.4rem;
-    line-height: 1.2;
-  }
-
-  .faq-subtitle {
-    font-size: 0.95rem;
-    max-width: 100%;
-  }
-
-  /* Layout stack */
-  .faq-layout {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Hide icons completely */
-  .faq-icons {
-    display: none;
-  }
-
-  /* Reset centering offset */
-  .faq-glass {
-    margin-left: 0;
-    width: 100%;
-    max-width: 100%;
-    padding: 22px 16px;
-  }
-
-  /* FAQ items spacing */
-  .faq-item {
-    margin-bottom: 12px;
-  }
-
-  /* Question button */
-  .faq-question {
-    font-size: 16px;
-    padding: 18px 16px;
-  }
-
-  /* Icon (+ / −) */
-  .faq-icon {
-    font-size: 22px;
-  }
-
-  /* Answer text */
-  .faq-answer p {
-    font-size: 15px;
-    line-height: 1.65;
-    padding: 0 16px 18px;
-  }
-
-  /* Remove background animation clutter */
-  .triangle {
-    display: none;
-  }
+.faq-back-link img:hover {
+  transform: translateY(-4px);
 }
