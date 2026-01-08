@@ -5,57 +5,52 @@ import "../style/Courses.css";
 function Courses() {
   const [courses, setCourses] = useState([]);
   const [search, setSearch] = useState("");
-  const [levelFilter, setLevelFilter] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("");
   const [durationFilter, setDurationFilter] = useState("");
-  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/courses")
-      .then((res) => setCourses(res.data))
-      .catch((err) => console.error(err));
+      .get("http://localhost:5000/courses", {
+        headers: { "Cache-Control": "no-cache" },
+      })
+      .then((res) => {
+        setCourses(Array.isArray(res.data) ? res.data : []);
+      })
+      .catch(() => setCourses([]));
   }, []);
 
   const filteredCourses = courses.filter((course) => {
-    const matchesLevel =
-      levelFilter === "" || course.level.toLowerCase().includes(levelFilter.toLowerCase());
+    if (!course?.title) return false;
+
+    const matchesSearch = course.title
+      .toLowerCase()
+      .includes(search.toLowerCase());
+
+    const matchesCategory =
+      !categoryFilter ||
+      course.category?.toLowerCase() === categoryFilter.toLowerCase();
 
     const matchesDuration =
-      durationFilter === "" || course.duration === durationFilter;
+      !durationFilter || course.duration === durationFilter;
 
-    const matchesSearch =
-      course.title.toLowerCase().includes(search.toLowerCase());
-
-    return matchesLevel && matchesDuration && matchesSearch;
+    return matchesSearch && matchesCategory && matchesDuration;
   });
-
-  const isFreeTrial = (level) => {
-    return (
-      level.toLowerCase().includes("beginner") ||
-      level.toLowerCase().includes("complete")
-    );
-  };
-
-  const handleEnroll = (course) => {
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      alert("Please login to continue");
-      return;
-    }
-
-    if (isFreeTrial(course.level)) {
-      alert(`🎉 You have started a FREE TRIAL for ${course.title}`);
-    } else {
-      alert(`💳 Payment required to enroll in ${course.title}`);
-    }
-  };
 
   return (
     <div className="courses-container">
-      <h1 className="courses-heading">Kickstart Your Learning Journey</h1>
 
-      {/* CONTROLS */}
+      {/* BACK BUTTON */}
+      <button
+        className="back-btn"
+        onClick={() => window.history.back()}
+      >
+        ← Back
+      </button>
+
+      <h1 className="courses-heading">Explore Our Learning Paths</h1>
+
+      {/* FILTERS */}
       <div className="courses-controls">
         <input
           type="text"
@@ -64,8 +59,11 @@ function Courses() {
           onChange={(e) => setSearch(e.target.value)}
         />
 
-        <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)}>
-          <option value="">All Levels</option>
+        <select
+          value={categoryFilter}
+          onChange={(e) => setCategoryFilter(e.target.value)}
+        >
+          <option value="">All Categories</option>
           <option value="Beginner">Beginner</option>
           <option value="Intermediate">Intermediate</option>
           <option value="Advanced">Advanced</option>
@@ -82,62 +80,55 @@ function Courses() {
         </select>
       </div>
 
-      {/* COURSES */}
+      {/* COURSE CARDS */}
       <div className="courses-list">
         {filteredCourses.map((course) => (
           <div key={course.id} className="course-card">
-            <div className="course-content">
-              <h2>{course.title}</h2>
-              <p><strong>Level:</strong> {course.level}</p>
-              <p><strong>Duration:</strong> {course.duration}</p>
-              <p>
-                <strong>Access:</strong>{" "}
-                {isFreeTrial(course.level) ? (
-                  <span className="free-badge">Free Trial</span>
-                ) : (
-                  <span className="paid-badge">{course.price}</span>
-                )}
+            <div className="course-header">
+              <h3 className="course-title">{course.title}</h3>
+              <p className="course-subtitle">
+                {course.level} • {course.duration}
               </p>
             </div>
 
-            <div className="course-actions">
-              <button
-                className="features-btn"
-                onClick={() => setSelectedCourse(course)}
-              >
-                View Features
-              </button>
+            <button
+              className="course-enroll-btn"
+              onClick={() => setShowPopup(true)}
+            >
+              Enroll Now
+            </button>
 
-              <button
-                className={isFreeTrial(course.level) ? "free-trial-btn" : "enroll-btn"}
-                onClick={() => handleEnroll(course)}
-              >
-                {isFreeTrial(course.level) ? "Start Free Trial" : "Enroll Now"}
-              </button>
-            </div>
+            {course.features?.length > 0 && (
+              <div className="course-features">
+                <p className="features-title">What you get:</p>
+                <ul>
+                  {course.features.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         ))}
-
-        {filteredCourses.length === 0 && (
-          <p className="no-results">No courses found.</p>
-        )}
       </div>
 
-      {/* MODAL */}
-      {selectedCourse && (
-        <div className="modal">
-          <div className="modal-content">
-            <h2>{selectedCourse.title}</h2>
-            <ul>
-              {selectedCourse.features.map((feature, index) => (
-                <li key={index}>{feature}</li>
-              ))}
-            </ul>
+      {/* POPUP */}
+      {showPopup && (
+        <div
+          className="popup-overlay"
+          onClick={() => setShowPopup(false)}
+        >
+          <div
+            className="popup-box"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2>🎉 Enrollment Successful!</h2>
+            <p>You’ve been successfully enrolled.</p>
             <button
-              className="close-btn"
-              onClick={() => setSelectedCourse(null)}
+              className="popup-btn"
+              onClick={() => setShowPopup(false)}
             >
-              Close
+              Okay
             </button>
           </div>
         </div>
