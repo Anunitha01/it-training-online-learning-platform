@@ -7,11 +7,9 @@ import FAQ from "./pages/FAQ"; // file name is FAQ.jsx
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-// Wrapper to conditionally show Navbar
 function Layout({ children }) {
   const location = useLocation();
 
-  // Hide Navbar for /faq and /courses routes
   const hideNavbarPaths = ["/faq", "/courses"];
   const showNavbar = !hideNavbarPaths.some(path =>
     location.pathname.toLowerCase().startsWith(path)
