@@ -11,16 +11,15 @@ function Courses() {
 
   // Fetch courses data from the backend (API)
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/courses") // Ensure the backend is running on this port
-      .then((response) => {
-        setCourses(response.data);  // Set the courses data in state
-      })
-      .catch((error) => {
-        console.error("Error fetching courses data:", error);
-      });
-  }, []);
-
+  axios
+    .get("https://it-training-online-learning-platform.onrender.com/courses")
+    .then((response) => {
+      setCourses(response.data);
+    })
+    .catch((error) => {
+      console.error("Error fetching courses data:", error);
+    });
+}, []);
   // Filter courses based on search, category, and duration
   const filteredCourses = courses.filter((course) => {
     const matchesSearch = course.title
