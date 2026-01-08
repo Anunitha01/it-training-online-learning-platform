@@ -1,4 +1,4 @@
-import "../style/Home.css";
+import "../Style/Home.css";
 import { useState } from "react";
 
 /* ===== ASSETS ===== */
