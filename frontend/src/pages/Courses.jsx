@@ -12,7 +12,7 @@ function Courses() {
   // Fetch courses data from the backend (API)
   useEffect(() => {
   axios
-    .get("https://it-training-online-learning-platform.onrender.com/courses")
+    .get("http://localhost:5000/courses")
     .then((response) => {
       setCourses(response.data);
     })

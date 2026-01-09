@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route,} from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation} from "react-router-dom";
 
 import Home from "./pages/Home";
 import Courses from "./pages/Courses";
@@ -9,7 +9,6 @@ import Footer from "./components/Footer";
 
 function Layout({ children }) {
   const location = useLocation();
-
   const hideNavbarPaths = ["/faq", "/courses"];
   const showNavbar = !hideNavbarPaths.some(path =>
     location.pathname.toLowerCase().startsWith(path)
